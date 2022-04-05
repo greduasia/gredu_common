@@ -1771,3 +1771,13 @@ extension MiscExtensions on String? {
     return format.format(int.parse(this!));
   }
 }
+
+extension NullableStringIsNullOrEmptyExtension on String? {
+  /// Returns `true` if the string is either `null` or empty.
+  bool get isNullOrEmpty => this?.isEmpty ?? true;
+}
+
+extension NullableStringIsNotNullOrEmptyExtension on String? {
+  /// Returns `true` if the string is neither null nor empty.
+  bool get isNotNullOrEmpty => !isNullOrEmpty;
+}

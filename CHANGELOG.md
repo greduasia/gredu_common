@@ -1,3 +1,6 @@
+## 0.0.3
+* add ext isNotNullOrEmpty & isNotNullOrEmpty
+
 ## 0.0.2
 * Fix minor bug
 
