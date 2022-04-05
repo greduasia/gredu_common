@@ -12,19 +12,19 @@ import '../../gredu_common.dart';
 ///    scope                : dateTime <-> string
 ///
 
+@visibleForTesting
 extension StringToDateExtension on String {
   /// Convert String to Date
   /// ---
   /// @param : format (optional)
-  DateTime toDateEx({
-    String format = 'yyyy-MM-ddTHH:mm:ssZ',
-  }) {
+DateTime toDateEx({String format = 'yyyy-MM-ddTHH:mm:ssZ'}) {
     initializeDateFormatting('in');
     const locale = 'in';
     return DateFormat(format, locale).parse(this);
   }
 }
 
+@visibleForTesting
 extension DateToStringExtension on DateTime {
   /// Date to String
   /// ---
@@ -39,6 +39,7 @@ extension DateToStringExtension on DateTime {
   }
 }
 
+@visibleForTesting
 extension StringToDateFormatterExtension on String {
   /// formatPastOrToday
   /// ---
