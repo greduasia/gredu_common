@@ -11,7 +11,7 @@ dependencies:
   velocity_x: ^3.4.0
   flutter_svg: ^1.0.3
   meta: ^1.7.0
-  device_info: ^2.0.3
+  device_info_plus: ^3.2.3
   loggy: ^2.0.1+1
   flutter_loggy: ^2.0.1
   intl: ^0.17.0
