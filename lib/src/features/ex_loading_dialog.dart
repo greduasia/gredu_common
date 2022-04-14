@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'loading_animation/loading_animation_widget.dart';
@@ -31,12 +32,11 @@ mixin ExLoading {
   /// }
   /// ```
   static void show({
-    required BuildContext context,
     bool isDismissible = false,
     String? message = '',
   }) {
     showDialog(
-      context: context,
+      context: Get.context!,
       builder: (context) {
         return AlertDialog(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),

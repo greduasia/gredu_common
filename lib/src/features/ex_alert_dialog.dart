@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 /*
@@ -19,14 +20,13 @@ mixin ExAlert {
   /// -- example implementation --
   /// ```dart
   /// ExAlert.success(
-  ///   context: context,
+  ///   context: Get.context!,
   ///   title: 'Hello World',
   ///   message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
   ///   onYes: () => print('clicked'),
   /// );
   /// ```
   static void success({
-    required BuildContext context,
     String svgAssetDir = 'assets/images/ic_dialog_success.svg',
     bool showAsset = true,
     String title = 'Success',
@@ -44,7 +44,7 @@ mixin ExAlert {
     Function()? onOkPressed,
   }) {
     showDialog(
-      context: context,
+      context: Get.context!,
       barrierDismissible: isDismissible,
       barrierColor: barrierColor,
       builder: (context) {
@@ -92,14 +92,13 @@ mixin ExAlert {
   /// -- example implementation --
   /// ```dart
   /// ExAlert.error(
-  ///   context: context,
+  ///   context: Get.context!,
   ///   title: 'Failed :"))',
   ///   message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
   ///   onYes: () => print('clicked'),
   /// );
   /// ```
   static void error({
-    required BuildContext context,
     String svgAssetDir = 'assets/images/ic_dialog_error.svg',
     bool showAsset = true,
     String title = 'Failed',
@@ -117,7 +116,7 @@ mixin ExAlert {
     Function()? onYes,
   }) {
     showDialog(
-      context: context,
+      context: Get.context!,
       barrierDismissible: isDismissible,
       barrierColor: barrierColor,
       builder: (context) {
@@ -164,7 +163,7 @@ mixin ExAlert {
   /// -- example implementation --
   /// ```dart
   /// ExAlert.confirm(
-  ///   context: context,
+  ///   context: Get.context!,
   ///   title: 'Some Question',
   ///   message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry?',
   ///   onYes: () => print('yes clicked'),
@@ -172,7 +171,6 @@ mixin ExAlert {
   /// );
   /// ```
   static void confirm({
-    required BuildContext context,
     String svgAssetDir = 'assets/images/ic_dialog_success.svg',
     bool showAsset = true,
     String title = '',
@@ -193,7 +191,7 @@ mixin ExAlert {
     double cornerRadius = 8.0,
   }) {
     showDialog(
-      context: context,
+      context: Get.context!,
       barrierDismissible: isDismissible,
       barrierColor: barrierColor,
       builder: (context) {
