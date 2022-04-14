@@ -9,7 +9,7 @@ class HomeController extends GetxController {
       message: 'Please wait ...',
       isDismissible: false,
     );
-    Future.delayed(3.seconds).then((value) => ExLoading.dismiss(Get.context!));
+    Future.delayed(3.seconds).then((value) => ExLoading.dismiss());
   }
 
   void list() {
@@ -32,6 +32,6 @@ class HomeController extends GetxController {
 
   void loading() {
     ExLoading.show();
-    Future.delayed(3.seconds).then((value) => ExLoading.dismiss(Get.context!));
+    Future.delayed(3.seconds).then((value) => ExLoading.dismiss());
   }
 }

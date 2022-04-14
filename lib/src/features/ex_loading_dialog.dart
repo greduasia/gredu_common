@@ -65,7 +65,5 @@ mixin ExLoading {
     );
   }
 
-  static void dismiss(BuildContext context) {
-    Navigator.maybePop(context);
-  }
+  static void dismiss() => Get.back();
 }

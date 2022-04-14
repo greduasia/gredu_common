@@ -41,7 +41,7 @@ mixin ExAlert {
     String btnOkText = 'Close',
     Color? barrierColor = Colors.black54,
     double cornerRadius = 8.0,
-    Function()? onOkPressed,
+    Function()? onYes,
   }) {
     showDialog(
       context: Get.context!,
@@ -78,7 +78,7 @@ mixin ExAlert {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(primary: Theme.of(context).primaryColor),
-                  onPressed: onOkPressed ?? () => Navigator.of(context).pop(),
+                  onPressed: onYes ?? () => Get.back(),
                   child: Text(btnOkText),
                 ).pOnly(left: 12, right: 12, bottom: 12).h(55).expand(),
               ],
@@ -149,7 +149,7 @@ mixin ExAlert {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(primary: Theme.of(context).errorColor),
-                  onPressed: onYes ?? () => Navigator.of(context).pop(),
+                  onPressed: onYes ?? () => Get.back(),
                   child: Text(btnYesText),
                 ).pOnly(left: 12, right: 12, bottom: 12).h(55).expand(),
               ],
@@ -226,13 +226,13 @@ mixin ExAlert {
                     primary: isWarningMode == true ? Theme.of(context).errorColor : Theme.of(context).primaryColor,
                     side: BorderSide(color: isWarningMode == true ? Theme.of(context).errorColor : Theme.of(context).primaryColor),
                   ),
-                  onPressed: onNo ?? () => Navigator.of(context).pop(),
+                  onPressed: onNo ?? () => Get.back(),
                   child: Text(btnNoText),
                 ).pOnly(bottom: 12).h(55).expand(),
                 8.widthBox,
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(primary: isWarningMode == true ? Theme.of(context).errorColor : Theme.of(context).primaryColor),
-                  onPressed: onYes ?? () => Navigator.of(context).pop(),
+                  onPressed: onYes ?? () => Get.back(),
                   child: Text(btnYesText),
                 ).pOnly(bottom: 12).h(55).expand(),
               ],
