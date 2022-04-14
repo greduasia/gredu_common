@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
@@ -14,8 +15,10 @@ import 'package:intl/intl.dart';
 
 enum DocumentType { xls, doc, ppt, pdf, file }
 
+@visibleForTesting
 extension MiscExtensions on String? {
   /// input = aditya pratama | output = aditya
+  @visibleForTesting
   String? get firstWord {
     if (this == null) {
       return null;
@@ -33,6 +36,7 @@ extension MiscExtensions on String? {
   }
 
   /// input = aditya pratama | output = AP
+  @visibleForTesting
   String get initialName {
     final splitW = this!.split(' ');
     var output = '';
@@ -53,6 +57,7 @@ extension MiscExtensions on String? {
   }
 
   /// Checks if the [length!] of the String is more than [s].
+  @visibleForTesting
   bool? operator >(String s) {
     if (this == null) {
       return null;
@@ -64,6 +69,7 @@ extension MiscExtensions on String? {
   }
 
   /// Checks if the [length!] of the String is more or equal to [s].
+  @visibleForTesting
   bool? operator >=(String s) {
     if (this == null) {
       return null;
@@ -75,6 +81,7 @@ extension MiscExtensions on String? {
   }
 
   /// Checks if the [length!] of the String is less than [s].
+  @visibleForTesting
   bool? operator <(String s) {
     if (this == null) {
       return null;
@@ -86,6 +93,7 @@ extension MiscExtensions on String? {
   }
 
   /// Checks if the [length!] of the String is less or equal to [s].
+  @visibleForTesting
   bool? operator <=(String s) {
     if (this == null) {
       return null;
@@ -97,6 +105,7 @@ extension MiscExtensions on String? {
   }
 
   /// Subtracts-removes a text from a `String`.
+  @visibleForTesting
   String? operator -(String s) {
     if (this == null) {
       return null;
@@ -117,6 +126,7 @@ extension MiscExtensions on String? {
   /// String foo =  'Hello dear friend how you doing ?';
   /// int readTime = foo.readTime(); // returns 3 seconds.
   /// ```
+  @visibleForTesting
   int? readTime({int wordsPerMinute = 200}) {
     if (this == null) {
       return null;
@@ -135,6 +145,7 @@ extension MiscExtensions on String? {
   /// String foo = 'hAckErrR';
   /// String cFoo = foo.capitalize; // returns 'Hackerrr'.
   /// ```
+  @visibleForTesting
   String? get capitalize {
     if (this == null) {
       return null;
@@ -153,6 +164,7 @@ extension MiscExtensions on String? {
   /// String foo = 'Hello dear friend how you doing ?';
   /// int count = foo.countWords; // returns 6 words.
   /// ```
+  @visibleForTesting
   int? get countWords {
     if (this == null) {
       return null;
@@ -177,6 +189,7 @@ extension MiscExtensions on String? {
   /// String foo = '1244e*s*4e*5523n*t*1i*s';
   /// String noNumbers = foo.removeNumbers; // returns 'e*s*e*n*t*i*s'
   /// ```
+  @visibleForTesting
   String? get removeNumbers {
     if (this == null) {
       return null;
@@ -194,6 +207,7 @@ extension MiscExtensions on String? {
   /// String foo = '4*%^55/es4e5523nt1is';
   /// String onlyLatin = foo.onlyLatin; // returns 'esentis'
   /// ```
+  @visibleForTesting
   String? get onlyLatin {
     if (this == null) {
       return null;
@@ -214,6 +228,7 @@ extension MiscExtensions on String? {
   /// String foo2 = '4*%^55/σοφ4e5523ια aaggαγάπ112η';
   /// String onlyGreek2 = foo2.onlyGreek; // returns 'σοφια αγάπη'
   /// ```
+  @visibleForTesting
   String? get onlyGreek {
     if (this == null) {
       return null;
@@ -237,6 +252,7 @@ extension MiscExtensions on String? {
   /// String foo = 'fff';
   /// bool isNull = foo.isNull; // returns false
   /// ```
+ @visibleForTesting
   bool get isNull {
     return this == null;
   }
@@ -252,6 +268,7 @@ extension MiscExtensions on String? {
   /// String foo = '192.168.1.14.150.1225';
   /// bool isIpv4 = foo.isIpv4; // returns false
   /// ```
+  @visibleForTesting
   bool? get isIpv4 {
     if (this == null) {
       return null;
@@ -275,6 +292,7 @@ extension MiscExtensions on String? {
   /// String foo = '192.168.1.14.150.1225';
   /// bool isIpv6 = foo.isIpv6; // returns false
   /// ```
+  @visibleForTesting
   bool? get isIpv6 {
     if (this == null) {
       return null;
@@ -300,6 +318,7 @@ extension MiscExtensions on String? {
   /// String foo = 'google.com';
   /// bool isUrl = foo.isUrl; // returns true
   /// ```
+  @visibleForTesting
   bool? get isUrl {
     if (this == null) {
       return null;
@@ -328,6 +347,7 @@ extension MiscExtensions on String? {
   /// * 2012-02-27T14+00:00
   /// * -123450101 00:00:00 Z": in the year -12345
   /// * 2002-02-27T14:00:00-0500": Same as "2002-02-27T19:00:00Z
+  @visibleForTesting
   bool? get isDate {
     if (this == null) {
       return null;
@@ -354,6 +374,7 @@ extension MiscExtensions on String? {
   /// String foo = 'esentis@esentis.com';
   /// bool isMail = foo.isMail; // returns true
   /// ```
+  @visibleForTesting
   bool? get isMail {
     if (this == null) {
       return null;
@@ -374,6 +395,7 @@ extension MiscExtensions on String? {
   /// ```dart
   /// String foo = '45s';
   /// String isNumber = foo.isNumber; // returns false
+  @visibleForTesting
   bool? get isNumber {
     if (this == null) {
       return null;
@@ -398,6 +420,7 @@ extension MiscExtensions on String? {
   /// String foo = 'IsTh!$Strong';
   /// bool isStrong = foo.isStrongPassword; // returns true
   /// ```
+  @visibleForTesting
   bool? get isStrongPassword {
     if (this == null) {
       return null;
@@ -420,6 +443,7 @@ extension MiscExtensions on String? {
   /// String foo = '887b7923-6d64-4396-8547-1ec1b86e081e';
   /// bool isGuid = foo.isGuid; // returns true
   /// ```
+  @visibleForTesting
   bool? get isGuid {
     if (this == null) {
       return null;
@@ -438,6 +462,7 @@ extension MiscExtensions on String? {
   /// var iterable = ['fff','gasd'];
   /// bool isIn = foo.isIn(iterable); // returns false
   /// ```
+  @visibleForTesting
   bool? isIn(Iterable<String?> strings) {
     if (this == null) {
       return null;
@@ -456,6 +481,7 @@ extension MiscExtensions on String? {
   /// String foo2 = 'this is hello world';
   /// bool isLatin2 = foo2.isLatin; // returns true
   /// ```
+  @visibleForTesting
   bool? get isLatin {
     if (this == null) {
       return null;
@@ -474,6 +500,7 @@ extension MiscExtensions on String? {
   /// String foo2 = 'Τα αγαθά κόποις κτώνται';
   /// bool isLatin2 = foo2.isGreek; // returns true
   /// ```
+  @visibleForTesting
   bool? get isGreek {
     if (this == null) {
       return null;
@@ -490,6 +517,7 @@ extension MiscExtensions on String? {
   /// String foo = '4*%^55/es4e5523nt1is';
   /// String onyNumbers = foo.onlyNumbers; // returns '455455231'
   /// ```
+  @visibleForTesting
   String? get onlyNumbers {
     if (this == null) {
       return null;
@@ -513,6 +541,7 @@ extension MiscExtensions on String? {
   /// String foo = '1244e*s*4e*5523n*t*1i*s';
   /// String noLetters = foo.removeLetters; // returns '1244**4*5523**1*'
   /// ```
+  @visibleForTesting
   String? get removeLetters {
     if (this == null) {
       return null;
@@ -534,6 +563,7 @@ extension MiscExtensions on String? {
   /// String foo = 'esentis';
   /// List occurences = foo.charOccurences; // returns '[{e:2},{i:1},{n:1},{s:2},]'
   /// ```
+  @visibleForTesting
   List<Map<String, int>>? get charOccurences {
     if (this == null) {
       return null;
@@ -569,6 +599,7 @@ extension MiscExtensions on String? {
   /// String foo = 'foo';
   /// int occ = foo.charCount('o'); // returns 2
   /// ```
+  @visibleForTesting
   int? charCount(String char) {
     if (this == null) {
       return null;
@@ -585,6 +616,7 @@ extension MiscExtensions on String? {
   /// String foo = 'Hello World';
   /// String mostFrequent = foo.mostFrequent; // returns 'l'
   /// ```
+  @visibleForTesting
   String? get mostFrequent {
     if (this == null) {
       return null;
@@ -628,6 +660,7 @@ extension MiscExtensions on String? {
   /// String foo = 'Hello World';
   /// String reversed = foo.reverse; // returns 'dlrow olleH'
   /// ```
+  @visibleForTesting
   String? get reverse {
     if (this == null) {
       return null;
@@ -659,11 +692,15 @@ extension MiscExtensions on String? {
   /// String foo = 'hello world';
   /// bool firstChars = foo.first(3); // returns 'hel'
   /// ```
+  @visibleForTesting
   String? first({int n = 1}) {
     if (this == null) {
       return null;
     }
     if (this!.isEmpty) {
+      return this;
+    }
+    if (n <= 0) {
       return this;
     }
     if (this!.length < n) {
@@ -692,11 +729,15 @@ extension MiscExtensions on String? {
   /// String foo = 'hello world';
   /// bool firstChars = foo.last(3); // returns 'rld'
   /// ```
+  @visibleForTesting
   String? last({int n = 1}) {
     if (this == null) {
       return null;
     }
     if (this!.isEmpty) {
+      return this;
+    }
+    if (n <= 0) {
       return this;
     }
     if (this!.length < n) {
@@ -712,6 +753,7 @@ extension MiscExtensions on String? {
   /// String foo = 'hello world';
   /// String fooSlug = foo.toSlug; // returns 'hello_world'
   /// ```
+  @visibleForTesting
   String? get toSlug {
     if (this == null) {
       return null;
@@ -740,6 +782,7 @@ extension MiscExtensions on String? {
   /// String foo = 'Find max of array';
   /// String camelCase = foo.toCamelCase; // returns 'findMaxOfArray'
   /// ```
+  @visibleForTesting
   String? get toCamelCase {
     if (this == null) {
       return null;
@@ -761,6 +804,7 @@ extension MiscExtensions on String? {
   /// String foo = 'Hello dear friend how you doing ?';
   /// Sting titleCased = foo.toTitleCase; // returns 'Hello Dear Friend How You Doing'.
   /// ```
+  @visibleForTesting
   String? get toTitleCase {
     if (this == null) {
       return null;
@@ -784,6 +828,7 @@ extension MiscExtensions on String? {
   /// String foo = 'abracadabra';
   /// List<String> fooArray = foo.toArray; // returns '[a,b,r,a,c,a,d,a,b,r,a]'
   /// ```
+  @visibleForTesting
   List<String>? get toArray {
     if (this == null) {
       return null;
@@ -807,6 +852,7 @@ extension MiscExtensions on String? {
   /// String foo = '4f';
   /// var fooNull = foo.toNum(); // returns null;
   /// ```
+  @visibleForTesting
   num? toNum() {
     if (this == null) {
       return null;
@@ -834,6 +880,7 @@ extension MiscExtensions on String? {
   /// String foo = '4.0';
   /// var fooNull = foo.toInt(); // returns 4;
   /// ```
+  @visibleForTesting
   int? toInt() {
     if (this == null) {
       return null;
@@ -857,6 +904,7 @@ extension MiscExtensions on String? {
   /// String foo = '4f';
   /// var fooNull = foo.toDouble(); // returns null;
   /// ```
+  @visibleForTesting
   double? toDouble() {
     if (this == null) {
       return null;
@@ -874,6 +922,7 @@ extension MiscExtensions on String? {
   /// String foo = 'Αριστοτέλης';
   /// String fooReplaced = foo.replaceGreek; // returns 'aristotelis'
   /// ```
+  @visibleForTesting
   String? get replaceGreek {
     if (this == null) {
       return null;
@@ -961,6 +1010,7 @@ extension MiscExtensions on String? {
   /// String foo = 'abracadabra';
   /// String fooOccs = foo.findPatterns(pattern:'abr'); // returns '[0, 7]'
   /// ```
+  @visibleForTesting
   List<int>? findPattern({required String pattern}) {
     if (this == null) {
       return null;
@@ -999,6 +1049,7 @@ extension MiscExtensions on String? {
   /// String html = '<script>Hacky hacky.</script> <p>Here is some text. <span class="bold">This is bold. </span></p>';
   /// String stripped = foo.stripHtml; // returns 'Hacky hacky. Here is some text. This is bold.';
   /// ```
+  @visibleForTesting
   String? get stripHtml {
     if (this == null) {
       return null;
@@ -1018,6 +1069,7 @@ extension MiscExtensions on String? {
   /// String foo = '';
   /// foo.ifEmpty(()=>print('String is empty'));
   /// ```
+  @visibleForTesting
   String? ifEmpty(Function act) {
     if (this == null) {
       return null;
@@ -1032,6 +1084,7 @@ extension MiscExtensions on String? {
   /// String foo = ''
   /// foo.ifEmpty(()=>print('String is null'));
   /// ```
+  @visibleForTesting
   String? ifNull(Function act) {
     if (this != null) {
       return this;
@@ -1046,6 +1099,7 @@ extension MiscExtensions on String? {
   /// String? foo = null;
   /// foo.ifNull('dont be null'); // returns 'dont be null'
   /// ```
+  @visibleForTesting
   String? defaultValue(String defautlValue) {
     if (this != null) {
       return this;
@@ -1060,6 +1114,7 @@ extension MiscExtensions on String? {
   /// String foo = 'foo';
   /// String fooRepeated = foo.repeat(5); // 'foofoofoofoofoo'
   /// ```
+  @visibleForTesting
   String? repeat(int count) {
     if (this == null) {
       return null;
@@ -1081,6 +1136,7 @@ extension MiscExtensions on String? {
   /// String foo = 'foofoofoofoofoo';
   /// String fooSqueezed = foo.squeeze('o'); // 'fofofofofo';
   /// ```
+  @visibleForTesting
   String? squeeze(String char) {
     if (this == null) {
       return null;
@@ -1108,6 +1164,7 @@ extension MiscExtensions on String? {
   /// String foo = 'ttttttt12'
   /// bool hasSame2 = foo.hasSameCharacters();  // false;
   /// ```
+  @visibleForTesting
   bool? get hasSameCharacters {
     if (this == null) {
       return null;
@@ -1134,6 +1191,7 @@ extension MiscExtensions on String? {
   /// String foo1 = 'esentis';
   /// String shuffled = foo.shuffle; // 'tsniees'
   /// ```
+  @visibleForTesting
   String? get shuffle {
     if (this == null) {
       return null;
@@ -1155,6 +1213,7 @@ extension MiscExtensions on String? {
   /// String foo1 = 'esentis';
   /// int dist = foo.getLevenshtein('esentis2'); // 1
   /// ```
+  @visibleForTesting
   int? getLevenshtein(String b) {
     if (this == null) {
       return null;
@@ -1194,6 +1253,7 @@ extension MiscExtensions on String? {
   ///var mask3 = 'Hello ####### you are from ######';
   ///var masked3 = string3.formatWithMask(mask3); // returns 'Hello esentis you are from greece'
   /// ```
+  @visibleForTesting
   String? formatWithMask(String mask, {String specialChar = '#'}) {
     if (this == null) {
       return null;
@@ -1225,6 +1285,7 @@ extension MiscExtensions on String? {
   /// String foo = 'esentis'
   /// String newFoo = foo.removeFirst(3) // 'ntis';
   /// ```
+  @visibleForTesting
   String? removeFirst(int n) {
     if (this == null) {
       return null;
@@ -1248,6 +1309,7 @@ extension MiscExtensions on String? {
   /// String foo = 'esentis';
   /// String newFoo = foo.removeLast(3); // 'esen';
   /// ```
+  @visibleForTesting
   String? removeLast(int n) {
     if (this == null) {
       return null;
@@ -1271,6 +1333,7 @@ extension MiscExtensions on String? {
   /// String foo = 'esentis';
   /// String newFoo = foo.maxChars(3); // 'esen';
   /// ```
+  @visibleForTesting
   String? maxChars(int n) {
     if (this == null) {
       return null;
@@ -1301,6 +1364,7 @@ extension MiscExtensions on String? {
   /// String foo2 = 'C:\\Documents\\user\\test';
   /// String revFoo2 = foo1.reverseSlash(1); // returns 'C:/Documents/user/test'
   /// ```
+  @visibleForTesting
   String? reverseSlash(int direction) {
     if (this == null) {
       return null;
@@ -1329,6 +1393,7 @@ extension MiscExtensions on String? {
   /// String? char3 = foo1.charAt(-20); // returns null
   /// String? char4 = foo1.charAt(20); // returns null
   /// ```
+  @visibleForTesting
   String? charAt(int index) {
     if (this == null) {
       return null;
@@ -1353,6 +1418,7 @@ extension MiscExtensions on String? {
   /// String foo = 'hello';
   /// String newFoo = foo1.append(' world'); // returns 'hello world'
   /// ```
+  @visibleForTesting
   String? append(String suffix) {
     if (this == null) {
       return null;
@@ -1371,6 +1437,7 @@ extension MiscExtensions on String? {
   /// String foo = 'world';
   /// String newFoo = foo1.prepend('hello '); // returns 'hello world'
   /// ```
+  @visibleForTesting
   String? prepend(String prefix) {
     if (this == null) {
       return null;
@@ -1391,7 +1458,8 @@ extension MiscExtensions on String? {
   /// String price = '1234567';
   /// String formattedPrice = foo1.toPriceAmount(currencySymbol: '€'); // returns '12.345,67 €'
   /// ```
-  String? toPriceAmount({String? currencySymbol}) {
+  @visibleForTesting
+  String? toPriceAmount({String? currencySymbol, String? locale = 'id_ID', String? removeDefaultSymbol = 'IDR', String? symbolPosition = 'head'}) {
     if (this == null) {
       return null;
     }
@@ -1399,8 +1467,12 @@ extension MiscExtensions on String? {
       return this;
     }
     try {
-      final f = NumberFormat.currency(locale: 'el_GR');
-      return f.format(double.tryParse(this!.replaceAll(',', '.'))).replaceAll('EUR', '').trim().append(currencySymbol == null ? '' : ' $currencySymbol');
+      final f = NumberFormat.currency(locale: locale);
+      if(symbolPosition == 'head') {
+        return f.format(double.tryParse(this!.replaceAll(',', '.'))).replaceAll(removeDefaultSymbol!, '').trim().prepend(currencySymbol == null ? '' : '$currencySymbol ');
+      } else {
+        return f.format(double.tryParse(this!.replaceAll(',', '.'))).replaceAll(removeDefaultSymbol!, '').trim().append(currencySymbol == null ? '' : ' $currencySymbol');
+      }
     } catch (e) {
       return null;
     }
@@ -1421,6 +1493,7 @@ extension MiscExtensions on String? {
   /// String day = date.getDayFromDate(); // returns 'Saturday'
   /// String grDay = date.getDayFromDate(locale:'el'); // returns 'Σάββατο'
   /// ```
+  @visibleForTesting
   String? getDayFromDate({String locale = 'en'}) {
     initializeDateFormatting(locale);
     if (this == null) {
@@ -1451,6 +1524,7 @@ extension MiscExtensions on String? {
   /// String month = date.getMonthFromDate(); // returns 'August'
   /// String grMonth = date.getMonthFromDate(locale:'el'); // returns 'Αυγούστου'
   /// ```
+  @visibleForTesting
   String? getMonthFromDate({String locale = 'en'}) {
     initializeDateFormatting(locale);
     if (this == null) {
@@ -1481,6 +1555,7 @@ extension MiscExtensions on String? {
   /// String day = date.firstDayOfDate(); // returns 'Friday'
   /// String grDay = date.firstDayOfDate(locale:'el'); // returns 'Παρασκευή'
   /// ```
+  @visibleForTesting
   String? firstDayOfMonth({String locale = 'en'}) {
     initializeDateFormatting(locale);
     if (this == null) {
@@ -1511,6 +1586,7 @@ extension MiscExtensions on String? {
   /// String day = date.firstDayOfDate(); // returns 'Friday'
   /// String grDay = date.firstDayOfDate(locale:'el'); // returns 'Παρασκευή'
   /// ```
+  @visibleForTesting
   String? lastDayOfMonth({String locale = 'en'}) {
     initializeDateFormatting(locale);
     if (this == null) {
@@ -1540,6 +1616,7 @@ extension MiscExtensions on String? {
   ///  String s = 'peanutbutter';
   ///  String foo = s.leftOf('butter'); // returns 'peanut'
   /// ```
+  @visibleForTesting
   String? leftOf(String char) {
     if (this == null) {
       return null;
@@ -1559,6 +1636,7 @@ extension MiscExtensions on String? {
   ///  String s = 'peanutbutter';
   ///  String foo = s.rightOf('peanut'); // returns 'butter'
   /// ```
+  @visibleForTesting
   String? rightOf(String char) {
     if (this == null) {
       return null;
@@ -1582,6 +1660,7 @@ extension MiscExtensions on String? {
   /// String f = 'congratulations';
   /// String truncated = f.truncate(3); // Returns 'con...'
   /// ```
+  @visibleForTesting
   String? truncate(int length) {
     if (this == null) {
       return null;
@@ -1610,6 +1689,7 @@ extension MiscExtensions on String? {
   /// String f = 'congratulations';
   /// String truncated = f.truncateMiddle(5); // Returns 'con...ns'
   /// ```
+  @visibleForTesting
   String? truncateMiddle(int maxChars) {
     if (this == null) {
       return null;
@@ -1638,6 +1718,7 @@ extension MiscExtensions on String? {
   /// String text = '"""Is this real"';
   /// String quote = text.quote; // "Is this real"
   /// ```
+  @visibleForTesting
   String? get quote {
     if (this == null) {
       return null;
@@ -1657,6 +1738,7 @@ extension MiscExtensions on String? {
   /// String text = '    esentis    thinks   ';
   /// String trimmed = text.trimAll ; // returns 'esentis thinks'
   /// ```
+  @visibleForTesting
   String? get trimAll {
     if (this == null) {
       return null;
@@ -1667,6 +1749,7 @@ extension MiscExtensions on String? {
     return this!.trim().replaceAll(RegExp(' +'), ' ');
   }
 
+  @visibleForTesting
   dynamic parseJSON({Object? Function(Object? key, Object? value)? reviver}) {
     try {
       if (this == null) {
@@ -1692,6 +1775,7 @@ extension MiscExtensions on String? {
   /// 'i like turtles'.allAfter('like')        // ' turtles'
   /// 'i   like cats'.allAfter(RegExp('\\s+')) // 'like cats'
   /// ```
+  @visibleForTesting
   String allAfter(Pattern pattern) {
     final matchIterator = pattern.allMatches(this!).iterator;
 
@@ -1713,6 +1797,7 @@ extension MiscExtensions on String? {
   /// 'value=1'.allBefore('=');          // 'value'
   /// 'i like turtles'.allBefore('like') // 'i '
   /// ```
+  @visibleForTesting
   String allBefore(Pattern pattern) {
     final matchIterator = pattern.allMatches(this!).iterator;
 
@@ -1737,6 +1822,7 @@ extension MiscExtensions on String? {
   /// ```dart
   /// 'i like turtles'.allBetween('i ', ' turtles') // 'like'
   /// ```
+  @visibleForTesting
   String allBetween(Pattern startPattern, Pattern endPattern) {
     return allAfter(startPattern).allBefore(endPattern);
   }
@@ -1745,6 +1831,7 @@ extension MiscExtensions on String? {
   // from gredu
   // —————————————————————————————————————————————————————————————————————————
   /// get type document url
+  @visibleForTesting
   DocumentType get typeDocumentUrl => this!.contains('xls')
       ? DocumentType.xls
       : this!.contains('doc')
@@ -1756,6 +1843,7 @@ extension MiscExtensions on String? {
       : DocumentType.file;
 
   /// get icon document
+  @visibleForTesting
   String get iconDocument => this!.contains('xls')
       ? 'assets/images/ic_xls.svg'
       : this!.contains('doc')
@@ -1766,17 +1854,20 @@ extension MiscExtensions on String? {
       ? 'assets/images/ic_pdf.svg'
       : 'assets/images/ic_file.svg';
 
+  @visibleForTesting
   String convertCurrency() {
     final format = NumberFormat.simpleCurrency(locale: 'in', decimalDigits: 0, name: 'Rp. ');
     return format.format(int.parse(this!));
   }
 }
 
+@visibleForTesting
 extension NullableStringIsNullOrEmptyExtension on String? {
   /// Returns `true` if the string is either `null` or empty.
   bool get isNullOrEmpty => this?.isEmpty ?? true;
 }
 
+@visibleForTesting
 extension NullableStringIsNotNullOrEmptyExtension on String? {
   /// Returns `true` if the string is neither null nor empty.
   bool get isNotNullOrEmpty => !isNullOrEmpty;
