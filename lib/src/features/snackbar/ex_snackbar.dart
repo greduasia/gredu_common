@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'flushbar.dart';
 
 mixin ExSnackbar {
   static void success({
-    required BuildContext context,
     String? title,
     double? titleSize,
     Color? titleColor = Colors.black,
@@ -35,12 +35,11 @@ mixin ExSnackbar {
       duration: duration,
       flushbarPosition: FlushbarPosition.TOP,
       shouldIconPulse: true,
-    ).show(context);
+    ).show(Get.context!);
   }
 
   /// Get an information notification flushbar
   static void info({
-    required BuildContext context,
     String? title,
     double? titleSize,
     Color? titleColor = Colors.black,
@@ -71,12 +70,11 @@ mixin ExSnackbar {
       duration: duration,
       flushbarPosition: FlushbarPosition.TOP,
       shouldIconPulse: true,
-    ).show(context);
+    ).show(Get.context!);
   }
 
   /// Get a error notification flushbar
   static void error({
-    required BuildContext context,
     String? title,
     double? titleSize,
     Color? titleColor = Colors.black,
@@ -107,12 +105,11 @@ mixin ExSnackbar {
       duration: duration,
       flushbarPosition: FlushbarPosition.TOP,
       shouldIconPulse: true,
-    ).show(context);
+    ).show(Get.context!);
   }
 
   /// Get a flushbar that can receive a user action through a button.
   static void action({
-    required BuildContext context,
     required String message,
     required Widget button,
     String? title,
@@ -123,12 +120,11 @@ mixin ExSnackbar {
       message: message,
       duration: duration,
       mainButton: button,
-    ).show(context);
+    ).show(Get.context!);
   }
 
   // Get a flushbar that shows the progress of a async computation.
   static void uploading({
-    required BuildContext context,
     required String message,
     String? title,
     Duration duration = const Duration(seconds: 3),
@@ -143,13 +139,13 @@ mixin ExSnackbar {
       showProgressIndicator: true,
       progressIndicatorController: progressIndicatorController,
       progressIndicatorBackgroundColor: progressIndicatorBackgroundColor,
-    ).show(context);
+    ).show(Get.context!);
   }
 
   // /// Get a flushbar that shows an user input form.
-  // static void createInputFlushbar({
-  //   required BuildContext context,
-  //   required Form textForm,
+// static void createInputFlushbar({
+//
+//   required Form textForm,
   // }) {
   //   Flushbar(
   //     duration: null,
