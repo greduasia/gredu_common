@@ -1,6 +1,7 @@
 import 'dart:io';
 
-import 'package:device_info/device_info.dart';
+import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/cupertino.dart';
 
 ///   created               : Aditya Pratama
 ///   originalFilename      : device_info_util
@@ -10,38 +11,41 @@ import 'package:device_info/device_info.dart';
 class DeviceInfo {
   final DeviceInfoPlugin _deviceInfo = DeviceInfoPlugin();
 
+  @visibleForTesting
   Future<String> uuid() async {
     String id = 'unknown';
     if (Platform.isAndroid) {
       final AndroidDeviceInfo androidInfo = await _deviceInfo.androidInfo;
-      id = androidInfo.androidId;
+      id = androidInfo.androidId ?? 'unknown';
     } else if (Platform.isIOS) {
       final IosDeviceInfo iosInfo = await _deviceInfo.iosInfo;
-      id = iosInfo.identifierForVendor;
+      id = iosInfo.identifierForVendor ?? 'unknown';
     }
     return id;
   }
 
+  @visibleForTesting
   Future<String> name() async {
     String name = 'unknown';
     if (Platform.isAndroid) {
       final AndroidDeviceInfo androidInfo = await _deviceInfo.androidInfo;
-      name = androidInfo.model;
+      name = androidInfo.model ?? 'unknown';
     } else if (Platform.isIOS) {
       final IosDeviceInfo iosInfo = await _deviceInfo.iosInfo;
-      name = iosInfo.utsname.machine;
+      name = iosInfo.utsname.machine ?? 'unknown';
     }
     return name;
   }
 
+  @visibleForTesting
   Future<String> type() async {
     String type = 'unknown';
     if (Platform.isAndroid) {
       final AndroidDeviceInfo androidInfo = await _deviceInfo.androidInfo;
-      type = androidInfo.type;
+      type = androidInfo.type ?? 'unknown';
     } else if (Platform.isIOS) {
       final IosDeviceInfo iosInfo = await _deviceInfo.iosInfo;
-      type = iosInfo.name;
+      type = iosInfo.name ?? 'unknown';
     }
     return type;
   }
