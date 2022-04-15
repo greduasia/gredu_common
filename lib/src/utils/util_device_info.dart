@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:flutter/cupertino.dart';
 
 ///   created               : Aditya Pratama
 ///   originalFilename      : device_info_util
@@ -11,7 +10,6 @@ import 'package:flutter/cupertino.dart';
 class DeviceInfo {
   final DeviceInfoPlugin _deviceInfo = DeviceInfoPlugin();
 
-  @visibleForTesting
   Future<String> uuid() async {
     String id = 'unknown';
     if (Platform.isAndroid) {
@@ -24,7 +22,6 @@ class DeviceInfo {
     return id;
   }
 
-  @visibleForTesting
   Future<String> name() async {
     String name = 'unknown';
     if (Platform.isAndroid) {
@@ -37,7 +34,6 @@ class DeviceInfo {
     return name;
   }
 
-  @visibleForTesting
   Future<String> type() async {
     String type = 'unknown';
     if (Platform.isAndroid) {

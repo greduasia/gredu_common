@@ -56,7 +56,10 @@ mixin ExAlert {
           content: VStack([
             if (showAsset)
               VStack([
-                SvgPicture.asset(svgAssetDir, package: 'ex', width: 90, height: 90).centered(),
+                if (svgAssetDir.isNotBlank)
+                  SvgPicture.asset(svgAssetDir, width: 90, height: 90).centered()
+                else
+                  SvgPicture.asset(svgAssetDir, package: 'gredu_common', width: 90, height: 90).centered(),
                 24.heightBox,
               ]),
             Text(
@@ -127,7 +130,10 @@ mixin ExAlert {
           content: VStack([
             if (showAsset)
               VStack([
-                SvgPicture.asset(svgAssetDir, package: 'ex', width: 90, height: 90).centered(),
+                if (svgAssetDir.isNotBlank)
+                  SvgPicture.asset(svgAssetDir, width: 90, height: 90).centered()
+                else
+                  SvgPicture.asset(svgAssetDir, package: 'gredu_common', width: 90, height: 90).centered(),
                 24.heightBox,
               ]),
             Text(
@@ -171,7 +177,7 @@ mixin ExAlert {
   /// );
   /// ```
   static void confirm({
-    String svgAssetDir = 'assets/images/ic_dialog_success.svg',
+    String svgAssetDir = 'assets/images/ic_dialog_question.svg',
     bool showAsset = true,
     String title = '',
     double titleTextSize = 18,
@@ -202,7 +208,10 @@ mixin ExAlert {
           content: VStack([
             if (showAsset)
               VStack([
-                SvgPicture.asset(svgAssetDir, package: 'ex', width: 90, height: 90).centered(),
+                if (svgAssetDir.isNotBlank)
+                  SvgPicture.asset(svgAssetDir, width: 90, height: 90).centered()
+                else
+                  SvgPicture.asset(svgAssetDir, package: 'gredu_common', width: 90, height: 90).centered(),
                 24.heightBox,
               ]),
             Text(

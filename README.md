@@ -11,7 +11,4 @@ is an common widget / utils or helper library we made for all type application. 
 
 3. make sure all test passed!
 
-4. Use annotate `@visibleForTesting` as a sign that the function has been tested. 
-   so that it is more visible than otherwise necessary, to make code readable. ref : https://api.flutter.dev/flutter/meta/visibleForTesting-constant.html
-
-5. [optional] create sample documentation for every function you write.
+4. [optional] create sample documentation for every function you write.
