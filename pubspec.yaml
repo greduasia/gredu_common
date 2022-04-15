@@ -1,7 +1,7 @@
 name: gredu_common
 description: GreduCommon is an common widget / utils or helper library i made for all type application. whatever application you made, GreduCommon it will help you reduce your fucking time on development process
 
-version: 0.0.4+rev1
+version: 0.0.5
 homepage: https://github.com/greduasia/gredu_common
 
 environment:
@@ -16,6 +16,7 @@ dependencies:
   loggy: ^2.0.1+1
   flutter_loggy: ^2.0.1
   intl: ^0.17.0
+  clock: ^1.1.0
 
   flutter:
     sdk: flutter
