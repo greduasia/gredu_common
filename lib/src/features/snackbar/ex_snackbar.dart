@@ -34,7 +34,6 @@ mixin ExSnackbar {
       isDismissible: isDismissible,
       duration: duration,
       flushbarPosition: FlushbarPosition.TOP,
-      shouldIconPulse: true,
     ).show(context);
   }
 
@@ -70,7 +69,6 @@ mixin ExSnackbar {
       isDismissible: isDismissible,
       duration: duration,
       flushbarPosition: FlushbarPosition.TOP,
-      shouldIconPulse: true,
     ).show(context);
   }
 
@@ -106,7 +104,6 @@ mixin ExSnackbar {
       isDismissible: isDismissible,
       duration: duration,
       flushbarPosition: FlushbarPosition.TOP,
-      shouldIconPulse: true,
     ).show(context);
   }
 
