@@ -11,6 +11,9 @@ void main() {
       initialRoute: AppPages.INITIAL,
       debugShowCheckedModeBanner: false,
       getPages: AppPages.routes,
+      theme: ThemeData(
+        primaryColor: Color(0xFF455DC7),
+      ),
     ),
   );
 }

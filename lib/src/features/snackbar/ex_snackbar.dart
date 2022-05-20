@@ -1,55 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../../gredu_common.dart';
 
-import 'flushbar.dart';
 
+/*
+ * GreduSnackbar
+ * Created by Aditya Pratama
+ * https://adit.com
+ *
+ * Copyright (c) 2021 MDVK, LLC. All rights reserved.
+ * See LICENSE for distribution and usage details.
+ */
 mixin ExSnackbar {
-  static void success({
-    required BuildContext context,
-    String? title,
-    double? titleSize,
-    Color? titleColor = Colors.black,
-    String? message,
-    double? messageSize,
-    Color? messageColor = Colors.black,
-    Color backgroundColor = const Color(0xFFEFEFEF),
-    IconData? icon = Icons.check_circle,
-    Duration duration = const Duration(seconds: 3),
-    double radius = 8,
-    double margin = 8,
-    FlushbarPosition position = FlushbarPosition.TOP,
-    bool isDismissible = true,
-  }) {
-    Flushbar(
-      title: title,
-      titleSize: titleSize,
-      titleColor: titleColor,
-      message: message,
-      messageSize: messageSize,
-      messageColor: messageColor,
-      backgroundColor: backgroundColor,
-      icon: Icon(icon, color: Colors.green[300]),
-      leftBarIndicatorColor: Colors.green[300],
-      borderRadius: BorderRadius.circular(radius),
-      margin: EdgeInsets.all(margin),
-      isDismissible: isDismissible,
-      duration: duration,
-      flushbarPosition: FlushbarPosition.TOP,
-    ).show(context);
-  }
 
-  /// Get an information notification flushbar
+
+  // —————————————————————————————————————————————————————————————————————————————
+  // info
+  // —————————————————————————————————————————————————————————————————————————————
   static void info({
-    required BuildContext context,
     String? title,
     double? titleSize,
     Color? titleColor = Colors.black,
-    String? message,
+    String? message = ' ',
     double? messageSize,
     Color? messageColor = Colors.black,
-    Color backgroundColor = const Color(0xFFEFEFEF),
+    Color backgroundColor = const Color(0xffF3F6FE),
     IconData? icon = Icons.info,
     Duration duration = const Duration(seconds: 3),
-    double radius = 8,
+    double radius = 4,
     double margin = 8,
     FlushbarPosition position = FlushbarPosition.TOP,
     bool isDismissible = true,
@@ -62,30 +40,31 @@ mixin ExSnackbar {
       messageSize: messageSize,
       messageColor: messageColor,
       backgroundColor: backgroundColor,
-      icon: Icon(icon, color: Colors.blue[300]),
-      leftBarIndicatorColor: Colors.blue[300],
+      icon: Icon(icon, color: Color(0xFF22328F)),
+      leftBarIndicatorColor: Color(0xFF22328F),
       borderRadius: BorderRadius.circular(radius),
       margin: EdgeInsets.all(margin),
       isDismissible: isDismissible,
       duration: duration,
-      flushbarPosition: FlushbarPosition.TOP,
-    ).show(context);
+      flushbarPosition: position,
+    ).show(Get.context!);
   }
 
-  /// Get a error notification flushbar
-  static void error({
-    required BuildContext context,
+  // —————————————————————————————————————————————————————————————————————————————
+  // danger
+  // —————————————————————————————————————————————————————————————————————————————
+  static void danger({
     String? title,
     double? titleSize,
     Color? titleColor = Colors.black,
-    String? message,
+    String? message = ' ',
     double? messageSize,
     Color? messageColor = Colors.black,
-    Color backgroundColor = const Color(0xFFEFEFEF),
-    IconData? icon = Icons.warning,
+    Color backgroundColor = const Color(0xFFFFF4F5),
+    IconData? icon = Icons.info,
     Duration duration = const Duration(seconds: 3),
-    double radius = 8,
-    double margin = 8,
+    double radius = 4,
+    double margin = 4,
     FlushbarPosition position = FlushbarPosition.TOP,
     bool isDismissible = true,
   }) {
@@ -97,19 +76,95 @@ mixin ExSnackbar {
       messageSize: messageSize,
       messageColor: messageColor,
       backgroundColor: backgroundColor,
-      icon: Icon(icon, color: Colors.red[300]),
-      leftBarIndicatorColor: Colors.red[300],
+      icon: Icon(icon, color: Colors.red[800]),
+      leftBarIndicatorColor: Colors.red[800],
       borderRadius: BorderRadius.circular(radius),
       margin: EdgeInsets.all(margin),
       isDismissible: isDismissible,
       duration: duration,
-      flushbarPosition: FlushbarPosition.TOP,
-    ).show(context);
+      flushbarPosition: position,
+    ).show(Get.context!);
   }
 
-  /// Get a flushbar that can receive a user action through a button.
+  // —————————————————————————————————————————————————————————————————————————————
+  // warning
+  // —————————————————————————————————————————————————————————————————————————————
+  static void warning({
+    String? title,
+    double? titleSize,
+    Color? titleColor = Colors.black,
+    String? message = ' ',
+    double? messageSize,
+    Color? messageColor = Colors.black,
+    Color backgroundColor = const Color(0xFFFFFDF3),
+    IconData? icon = Icons.warning,
+    Duration duration = const Duration(seconds: 3),
+    double radius = 4,
+    double margin = 4,
+    FlushbarPosition position = FlushbarPosition.TOP,
+    bool isDismissible = true,
+  }) {
+    Flushbar(
+      title: title,
+      titleSize: titleSize,
+      titleColor: titleColor,
+      message: message,
+      messageSize: messageSize,
+      messageColor: messageColor,
+      backgroundColor: backgroundColor,
+      icon: Icon(icon, color: Color(0xFFF69348)),
+      leftBarIndicatorColor: Color(0xFFF69348),
+      borderRadius: BorderRadius.circular(radius),
+      margin: EdgeInsets.all(margin),
+      isDismissible: isDismissible,
+      duration: duration,
+      flushbarPosition: position,
+    ).show(Get.context!);
+  }
+
+  // —————————————————————————————————————————————————————————————————————————————
+  // success
+  // —————————————————————————————————————————————————————————————————————————————
+  static void success({
+    String? title,
+    double? titleSize,
+    Color? titleColor = Colors.black,
+    String? message = ' ',
+    double? messageSize,
+    Color? messageColor = Colors.black,
+    Color backgroundColor = const Color(0xFFE9F5F2),
+    IconData? icon = Icons.check_circle,
+    Duration duration = const Duration(seconds: 3),
+    double radius = 4,
+    double margin = 4,
+    FlushbarPosition position = FlushbarPosition.TOP,
+    bool isDismissible = true,
+  }) {
+    Flushbar(
+      title: title,
+      titleSize: titleSize,
+      titleColor: titleColor,
+      message: message,
+      messageSize: messageSize,
+      messageColor: messageColor,
+      backgroundColor: backgroundColor,
+      icon: Icon(icon, color: Colors.green[800]),
+      leftBarIndicatorColor: Colors.green[800],
+      borderRadius: BorderRadius.circular(radius),
+      margin: EdgeInsets.all(margin),
+      isDismissible: isDismissible,
+      duration: duration,
+      flushbarPosition: position,
+    ).show(Get.context!);
+  }
+
+
+
+
+  // —————————————————————————————————————————————————————————————————————————————
+  // action
+  // —————————————————————————————————————————————————————————————————————————————
   static void action({
-    required BuildContext context,
     required String message,
     required Widget button,
     String? title,
@@ -120,12 +175,10 @@ mixin ExSnackbar {
       message: message,
       duration: duration,
       mainButton: button,
-    ).show(context);
+    ).show(Get.context!);
   }
 
-  // Get a flushbar that shows the progress of a async computation.
   static void uploading({
-    required BuildContext context,
     required String message,
     String? title,
     Duration duration = const Duration(seconds: 3),
@@ -140,17 +193,6 @@ mixin ExSnackbar {
       showProgressIndicator: true,
       progressIndicatorController: progressIndicatorController,
       progressIndicatorBackgroundColor: progressIndicatorBackgroundColor,
-    ).show(context);
+    ).show(Get.context!);
   }
-
-  // /// Get a flushbar that shows an user input form.
-  // static void createInputFlushbar({
-  //   required BuildContext context,
-  //   required Form textForm,
-  // }) {
-  //   Flushbar(
-  //     duration: null,
-  //     userInputForm: textForm,
-  //   ).show(context);
-  // }
 }

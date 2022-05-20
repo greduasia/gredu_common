@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 /*
@@ -19,32 +20,31 @@ mixin ExAlert {
   /// -- example implementation --
   /// ```dart
   /// ExAlert.success(
-  ///   context: context,
+  ///   context: Get.context!,
   ///   title: 'Hello World',
   ///   message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
   ///   onYes: () => print('clicked'),
   /// );
   /// ```
   static void success({
-    required BuildContext context,
     String svgAssetDir = 'assets/images/ic_dialog_success.svg',
     bool showAsset = true,
     String title = 'Success',
     double titleTextSize = 18,
-    TextAlign titleTextAlign = TextAlign.center,
+    TextAlign titleTextAlign = TextAlign.left,
     Color titleTextColor = Colors.black,
     String message = '',
     double messageTextSize = 13,
-    TextAlign messageTextAlign = TextAlign.center,
+    TextAlign messageTextAlign = TextAlign.left,
     Color messageTextColor = Colors.blueGrey,
     bool isDismissible = false,
     String btnOkText = 'Close',
     Color? barrierColor = Colors.black54,
     double cornerRadius = 8.0,
-    Function()? onOkPressed,
+    Function()? onYes,
   }) {
     showDialog(
-      context: context,
+      context: Get.context!,
       barrierDismissible: isDismissible,
       barrierColor: barrierColor,
       builder: (context) {
@@ -56,7 +56,10 @@ mixin ExAlert {
           content: VStack([
             if (showAsset)
               VStack([
-                SvgPicture.asset(svgAssetDir, package: 'ex', width: 90, height: 90).centered(),
+                if (svgAssetDir.isNotBlank)
+                  SvgPicture.asset(svgAssetDir, width: 90, height: 90).centered()
+                else
+                  SvgPicture.asset(svgAssetDir, package: 'gredu_common', width: 90, height: 90).centered(),
                 24.heightBox,
               ]),
             Text(
@@ -78,7 +81,7 @@ mixin ExAlert {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(primary: Theme.of(context).primaryColor),
-                  onPressed: onOkPressed ?? () => Navigator.of(context).pop(),
+                  onPressed: onYes ?? () => Get.back(),
                   child: Text(btnOkText),
                 ).pOnly(left: 12, right: 12, bottom: 12).h(55).expand(),
               ],
@@ -92,23 +95,22 @@ mixin ExAlert {
   /// -- example implementation --
   /// ```dart
   /// ExAlert.error(
-  ///   context: context,
+  ///   context: Get.context!,
   ///   title: 'Failed :"))',
   ///   message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
   ///   onYes: () => print('clicked'),
   /// );
   /// ```
   static void error({
-    required BuildContext context,
     String svgAssetDir = 'assets/images/ic_dialog_error.svg',
     bool showAsset = true,
     String title = 'Failed',
     double titleTextSize = 18,
-    TextAlign titleTextAlign = TextAlign.center,
+    TextAlign titleTextAlign = TextAlign.left,
     Color titleTextColor = Colors.black,
     String message = '',
     double messageTextSize = 13,
-    TextAlign messageTextAlign = TextAlign.center,
+    TextAlign messageTextAlign = TextAlign.left,
     Color messageTextColor = Colors.blueGrey,
     bool isDismissible = false,
     String btnYesText = 'Close',
@@ -117,7 +119,7 @@ mixin ExAlert {
     Function()? onYes,
   }) {
     showDialog(
-      context: context,
+      context: Get.context!,
       barrierDismissible: isDismissible,
       barrierColor: barrierColor,
       builder: (context) {
@@ -128,7 +130,10 @@ mixin ExAlert {
           content: VStack([
             if (showAsset)
               VStack([
-                SvgPicture.asset(svgAssetDir, package: 'ex', width: 90, height: 90).centered(),
+                if (svgAssetDir.isNotBlank)
+                  SvgPicture.asset(svgAssetDir, width: 90, height: 90).centered()
+                else
+                  SvgPicture.asset(svgAssetDir, package: 'gredu_common', width: 90, height: 90).centered(),
                 24.heightBox,
               ]),
             Text(
@@ -150,7 +155,7 @@ mixin ExAlert {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(primary: Theme.of(context).errorColor),
-                  onPressed: onYes ?? () => Navigator.of(context).pop(),
+                  onPressed: onYes ?? () => Get.back(),
                   child: Text(btnYesText),
                 ).pOnly(left: 12, right: 12, bottom: 12).h(55).expand(),
               ],
@@ -164,7 +169,7 @@ mixin ExAlert {
   /// -- example implementation --
   /// ```dart
   /// ExAlert.confirm(
-  ///   context: context,
+  ///   context: Get.context!,
   ///   title: 'Some Question',
   ///   message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry?',
   ///   onYes: () => print('yes clicked'),
@@ -172,16 +177,15 @@ mixin ExAlert {
   /// );
   /// ```
   static void confirm({
-    required BuildContext context,
-    String svgAssetDir = 'assets/images/ic_dialog_success.svg',
+    String svgAssetDir = 'assets/images/ic_dialog_question.svg',
     bool showAsset = true,
     String title = '',
     double titleTextSize = 18,
-    TextAlign titleTextAlign = TextAlign.center,
+    TextAlign titleTextAlign = TextAlign.left,
     Color titleTextColor = Colors.black,
     String message = '',
     double messageTextSize = 13,
-    TextAlign messageTextAlign = TextAlign.center,
+    TextAlign messageTextAlign = TextAlign.left,
     Color messageTextColor = Colors.blueGrey,
     bool isDismissible = false,
     String btnNoText = 'No',
@@ -193,7 +197,7 @@ mixin ExAlert {
     double cornerRadius = 8.0,
   }) {
     showDialog(
-      context: context,
+      context: Get.context!,
       barrierDismissible: isDismissible,
       barrierColor: barrierColor,
       builder: (context) {
@@ -204,7 +208,10 @@ mixin ExAlert {
           content: VStack([
             if (showAsset)
               VStack([
-                SvgPicture.asset(svgAssetDir, package: 'ex', width: 90, height: 90).centered(),
+                if (svgAssetDir.isNotBlank)
+                  SvgPicture.asset(svgAssetDir, width: 90, height: 90).centered()
+                else
+                  SvgPicture.asset(svgAssetDir, package: 'gredu_common', width: 90, height: 90).centered(),
                 24.heightBox,
               ]),
             Text(
@@ -221,22 +228,39 @@ mixin ExAlert {
             ).w(double.infinity),
           ]),
           actions: [
-            Row(
+            Column(
               children: [
-                OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    primary: isWarningMode == true ? Theme.of(context).errorColor : Theme.of(context).primaryColor,
-                    side: BorderSide(color: isWarningMode == true ? Theme.of(context).errorColor : Theme.of(context).primaryColor),
+                SizedBox(
+                  width: double.infinity,
+                  height: 44,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(primary: isWarningMode == true ? Theme.of(context).errorColor : Theme.of(context).primaryColor),
+                    onPressed: onYes ?? () => Get.back(),
+                    child: Text(btnYesText),
                   ),
-                  onPressed: onNo ?? () => Navigator.of(context).pop(),
-                  child: Text(btnNoText),
-                ).pOnly(bottom: 12).h(55).expand(),
-                8.widthBox,
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: isWarningMode == true ? Theme.of(context).errorColor : Theme.of(context).primaryColor),
-                  onPressed: onYes ?? () => Navigator.of(context).pop(),
-                  child: Text(btnYesText),
-                ).pOnly(bottom: 12).h(55).expand(),
+                ),
+
+                12.heightBox,
+
+                SizedBox(
+                  width: double.infinity,
+                  height: 44,
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      primary: isWarningMode == true
+                          ? Theme.of(context).errorColor
+                          : Colors.black,
+                      side: BorderSide(color: isWarningMode == true
+                          ? Theme.of(context).errorColor
+                          : Colors.black
+                      ),
+                    ),
+                    onPressed: onNo ?? () => Get.back(),
+                    child: Text(btnNoText),
+                  ),
+                ),
+
+                12.heightBox,
               ],
             ).pOnly(left: 12, right: 12),
           ],

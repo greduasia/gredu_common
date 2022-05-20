@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'loading_animation/loading_animation_widget.dart';
@@ -31,12 +32,13 @@ mixin ExLoading {
   /// }
   /// ```
   static void show({
-    required BuildContext context,
     bool isDismissible = false,
     String? message = '',
+    double? messageSize = 14,
+    Widget? imageAsset,
   }) {
     showDialog(
-      context: context,
+      context: Get.context!,
       builder: (context) {
         return AlertDialog(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -45,17 +47,18 @@ mixin ExLoading {
             [
               Center(
                 child: VStack([
-                  LoadingAnimationWidget.discreteCircle(
-                    color: Theme.of(context).primaryColor,
-                    size: 32,
-                    // rightDotColor: Theme.of(context).primaryColor,
-                    // leftDotColor: Theme.of(context).errorColor,
-                  ).centered(),
+                  if (imageAsset != null)
+                    imageAsset
+                  else
+                    LoadingAnimationWidget.discreteCircle(
+                      color: Theme.of(context).primaryColor,
+                      size: 32,
+                    ).centered(),
                   if (!message.isEmptyOrNull)
                     VStack([
                       16.heightBox,
-                      Text(message!, textAlign: TextAlign.center, style: TextStyle(fontSize: 14)).centered(),
-                    ]),
+                      message!.text.align(TextAlign.center).size(messageSize).makeCentered(),
+                    ]).centered(),
                 ]),
               ),
             ],
@@ -65,7 +68,5 @@ mixin ExLoading {
     );
   }
 
-  static void dismiss(BuildContext context) {
-    Navigator.maybePop(context);
-  }
+  static void dismiss() => Get.back();
 }

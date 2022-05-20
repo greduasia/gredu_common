@@ -5,12 +5,11 @@ import 'package:velocity_x/velocity_x.dart';
 class HomeController extends GetxController {
   void showAlert() {
     ExSnackbar.info(
-      context: Get.context!,
       title: 'This is a title',
       message: 'Please wait ...',
       isDismissible: false,
     );
-    Future.delayed(3.seconds).then((value) => ExLoading.dismiss(Get.context!));
+    Future.delayed(3.seconds).then((value) => ExLoading.dismiss());
   }
 
   void list() {
@@ -32,7 +31,7 @@ class HomeController extends GetxController {
   void custom() {}
 
   void loading() {
-    ExLoading.show(context: Get.context!);
-    Future.delayed(3.seconds).then((value) => ExLoading.dismiss(Get.context!));
+    ExLoading.show();
+    Future.delayed(3.seconds).then((value) => ExLoading.dismiss());
   }
 }
