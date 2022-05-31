@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
@@ -666,6 +667,9 @@ extension MiscExtensions on String? {
     if (this!.isEmpty) {
       return this;
     }
+    if (n <= 0) {
+      return this;
+    }
     if (this!.length < n) {
       return this;
     }
@@ -697,6 +701,9 @@ extension MiscExtensions on String? {
       return null;
     }
     if (this!.isEmpty) {
+      return this;
+    }
+    if (n <= 0) {
       return this;
     }
     if (this!.length < n) {
@@ -1391,7 +1398,7 @@ extension MiscExtensions on String? {
   /// String price = '1234567';
   /// String formattedPrice = foo1.toPriceAmount(currencySymbol: '€'); // returns '12.345,67 €'
   /// ```
-  String? toPriceAmount({String? currencySymbol}) {
+  String? toPriceAmount({String? currencySymbol, String? locale = 'id_ID', String? removeDefaultSymbol = 'IDR', String? symbolPosition = 'head'}) {
     if (this == null) {
       return null;
     }
@@ -1399,8 +1406,12 @@ extension MiscExtensions on String? {
       return this;
     }
     try {
-      final f = NumberFormat.currency(locale: 'el_GR');
-      return f.format(double.tryParse(this!.replaceAll(',', '.'))).replaceAll('EUR', '').trim().append(currencySymbol == null ? '' : ' $currencySymbol');
+      final f = NumberFormat.currency(locale: locale);
+      if(symbolPosition == 'head') {
+        return f.format(double.tryParse(this!.replaceAll(',', '.'))).replaceAll(removeDefaultSymbol!, '').trim().prepend(currencySymbol == null ? '' : '$currencySymbol ');
+      } else {
+        return f.format(double.tryParse(this!.replaceAll(',', '.'))).replaceAll(removeDefaultSymbol!, '').trim().append(currencySymbol == null ? '' : ' $currencySymbol');
+      }
     } catch (e) {
       return null;
     }
