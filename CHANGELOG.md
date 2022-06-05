@@ -1,3 +1,7 @@
+## 0.0.7
+* Add ExInputDialog.single()
+
+
 ## 0.0.6
 * Fix ExAlert, ExSnackbar, ExLoading
 

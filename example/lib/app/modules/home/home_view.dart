@@ -71,15 +71,29 @@ class HomeView extends GetView<HomeController> {
             });
           },
         ),
-
         Divider().paddingSymmetric(vertical: 16),
-
-
-        ElevatedButton(
-          child: 'Snackbar'.text.make(),
-          onPressed: () {
-            ExSnackbar.info();
-          },
+        HStack(
+          [
+            ElevatedButton(
+              child: 'Snackbar'.text.make(),
+              onPressed: () => ExSnackbar.info(),
+            ),
+            12.widthBox,
+            ElevatedButton(
+              child: 'ExInputDialog'.text.make(),
+              onPressed: () => ExInputDialog.single(
+                  title: 'asd',
+                  questionText: 'questionText',
+                  helperText: 'helperText',
+                  onYes: (s) {
+                    ExSnackbar.info(
+                      message: s,
+                      backgroundColor: Colors.blue[50]!,
+                      
+                    );
+                  }),
+            ),
+          ],
         ),
       ]).p16().scrollVertical(),
     );

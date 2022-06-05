@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../gredu_common.dart';
 
-
 /*
  * GreduSnackbar
  * Created by Aditya Pratama
@@ -12,8 +11,6 @@ import '../../../gredu_common.dart';
  * See LICENSE for distribution and usage details.
  */
 mixin ExSnackbar {
-
-
   // —————————————————————————————————————————————————————————————————————————————
   // info
   // —————————————————————————————————————————————————————————————————————————————
@@ -157,9 +154,6 @@ mixin ExSnackbar {
       flushbarPosition: position,
     ).show(Get.context!);
   }
-
-
-
 
   // —————————————————————————————————————————————————————————————————————————————
   // action
