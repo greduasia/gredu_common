@@ -1,3 +1,6 @@
+## 0.0.8
+* fix issue loading dialog
+
 ## 0.0.7
 * Add ExInputDialog.single()
 

@@ -32,41 +32,44 @@ mixin ExLoading {
   /// }
   /// ```
   static void show({
-    bool isDismissible = false,
+    bool isDismissible = true,
     String? message = '',
     double? messageSize = 14,
     Widget? imageAsset,
   }) {
-    showDialog(
-      context: Get.context!,
-      builder: (context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),
-          insetPadding: EdgeInsets.symmetric(horizontal: 120),
-          content: VStack(
-            [
-              Center(
-                child: VStack([
-                  if (imageAsset != null)
-                    imageAsset
-                  else
-                    LoadingAnimationWidget.discreteCircle(
-                      color: Theme.of(context).primaryColor,
-                      size: 32,
-                    ).centered(),
-                  if (!message.isEmptyOrNull)
-                    VStack([
-                      16.heightBox,
-                      message!.text.align(TextAlign.center).size(messageSize).makeCentered(),
-                    ]).centered(),
-                ]),
-              ),
-            ],
-          ),
-        );
-      },
+    Get.dialog(
+      AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),
+        insetPadding: EdgeInsets.symmetric(horizontal: 120),
+        content: VStack(
+          [
+            Center(
+              child: VStack([
+                if (imageAsset != null)
+                  imageAsset
+                else
+                  LoadingAnimationWidget.discreteCircle(
+                    color: Theme.of(Get.context!).primaryColor,
+                    size: 32,
+                  ).centered(),
+                if (!message.isEmptyOrNull)
+                  VStack([
+                    16.heightBox,
+                    message!.text.align(TextAlign.center).size(messageSize).makeCentered(),
+                  ]).centered(),
+              ]),
+            ),
+          ],
+        ),
+      ),
+      barrierDismissible: isDismissible,
+      useSafeArea: true,
     );
   }
 
-  static void dismiss() => Get.back();
+  static void dismiss() {
+    if (Get.isDialogOpen == true) {
+      Get.back();
+    }
+  }
 }

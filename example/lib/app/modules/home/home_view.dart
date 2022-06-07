@@ -76,7 +76,7 @@ class HomeView extends GetView<HomeController> {
           [
             ElevatedButton(
               child: 'Snackbar'.text.make(),
-              onPressed: () => ExSnackbar.info(),
+              onPressed: () => controller.testDialog(),
             ),
             12.widthBox,
             ElevatedButton(
