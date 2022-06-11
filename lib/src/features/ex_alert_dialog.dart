@@ -239,27 +239,19 @@ mixin ExAlert {
                     child: Text(btnYesText),
                   ),
                 ),
-
                 12.heightBox,
-
                 SizedBox(
                   width: double.infinity,
                   height: 44,
                   child: OutlinedButton(
                     style: OutlinedButton.styleFrom(
-                      primary: isWarningMode == true
-                          ? Theme.of(context).errorColor
-                          : Colors.black,
-                      side: BorderSide(color: isWarningMode == true
-                          ? Theme.of(context).errorColor
-                          : Colors.black
-                      ),
+                      primary: isWarningMode == true ? Theme.of(context).errorColor : Colors.black,
+                      side: BorderSide(color: isWarningMode == true ? Theme.of(context).errorColor : Colors.black),
                     ),
                     onPressed: onNo ?? () => Get.back(),
                     child: Text(btnNoText),
                   ),
                 ),
-
                 12.heightBox,
               ],
             ).pOnly(left: 12, right: 12),

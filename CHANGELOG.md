@@ -1,3 +1,7 @@
+## 0.0.9
+* change default isDismissible = false on ExLoading
+* add param initial value on ExInputDialog
+
 ## 0.0.8
 * fix issue loading dialog
 

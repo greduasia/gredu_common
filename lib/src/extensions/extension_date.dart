@@ -9,14 +9,14 @@ import '../../gredu_common.dart';
 ///   originalFilename      : extension_date
 ///   date                  : 22 Jun 2021
 ///   —————————————————————————————————————————————————————————————————————————————
-///    scope                : dateTime <-> string
+///   scope                : dateTime <-> string
 ///
 
 extension StringToDateExtension on String {
   /// Convert String to Date
   /// ---
   /// @param : format (optional)
-DateTime toDateEx({String format = 'yyyy-MM-ddTHH:mm:ssZ'}) {
+  DateTime toDateEx({String format = 'yyyy-MM-ddTHH:mm:ssZ'}) {
     initializeDateFormatting('in');
     const locale = 'in';
     return DateFormat(format, locale).parse(this);

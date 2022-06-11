@@ -32,7 +32,7 @@ mixin ExLoading {
   /// }
   /// ```
   static void show({
-    bool isDismissible = true,
+    bool isDismissible = false,
     String? message = '',
     double? messageSize = 14,
     Widget? imageAsset,

@@ -1525,10 +1525,10 @@ extension MiscExtensions on String? {
     }
     return DateFormat('EEEE', locale)
         .format(
-      DateTime(date.year, date.month + 1).add(
-        const Duration(days: -1),
-      ),
-    )
+          DateTime(date.year, date.month + 1).add(
+            const Duration(days: -1),
+          ),
+        )
         .toString();
   }
 
@@ -1748,23 +1748,23 @@ extension MiscExtensions on String? {
   DocumentType get typeDocumentUrl => this!.contains('xls')
       ? DocumentType.xls
       : this!.contains('doc')
-      ? DocumentType.doc
-      : this!.contains('ppt')
-      ? DocumentType.ppt
-      : this!.contains('pdf')
-      ? DocumentType.pdf
-      : DocumentType.file;
+          ? DocumentType.doc
+          : this!.contains('ppt')
+              ? DocumentType.ppt
+              : this!.contains('pdf')
+                  ? DocumentType.pdf
+                  : DocumentType.file;
 
   /// get icon document
   String get iconDocument => this!.contains('xls')
       ? 'assets/images/ic_xls.svg'
       : this!.contains('doc')
-      ? 'assets/images/ic_doc.svg'
-      : this!.contains('ppt')
-      ? 'assets/images/ic_ppt.svg'
-      : this!.contains('pdf')
-      ? 'assets/images/ic_pdf.svg'
-      : 'assets/images/ic_file.svg';
+          ? 'assets/images/ic_doc.svg'
+          : this!.contains('ppt')
+              ? 'assets/images/ic_ppt.svg'
+              : this!.contains('pdf')
+                  ? 'assets/images/ic_pdf.svg'
+                  : 'assets/images/ic_file.svg';
 
   String convertCurrency() {
     final format = NumberFormat.simpleCurrency(locale: 'in', decimalDigits: 0, name: 'Rp. ');

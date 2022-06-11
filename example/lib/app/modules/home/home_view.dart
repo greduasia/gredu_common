@@ -82,14 +82,14 @@ class HomeView extends GetView<HomeController> {
             ElevatedButton(
               child: 'ExInputDialog'.text.make(),
               onPressed: () => ExInputDialog.single(
-                  title: 'asd',
+                  title: 'Ini Title',
                   questionText: 'questionText',
                   helperText: 'helperText',
+                  initialValue: 'initialValue',
                   onYes: (s) {
                     ExSnackbar.info(
                       message: s,
                       backgroundColor: Colors.blue[50]!,
-                      
                     );
                   }),
             ),

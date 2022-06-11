@@ -17,7 +17,6 @@ const upperAlphaEnd = 90;
 
 final _internal = Random();
 
-
 // -- example --
 // main() {
 //   print(randomBetween(10, 20)); // some integer between 10 and 20 where 0 <= min <= max <= 999999999999999

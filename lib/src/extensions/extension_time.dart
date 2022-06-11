@@ -59,7 +59,7 @@ extension DateTimeTimeExtension on DateTime {
   /// Returns true if this year is a leap year.
   bool get isLeapYear =>
       // Leap years are used since 1582.
-  year >= 1582 && year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+      year >= 1582 && year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
 
   /// Returns the amount of days that are in this month.
   ///
@@ -188,25 +188,25 @@ extension DateTimeTimeExtension on DateTime {
   }) {
     return isUtc
         ? DateTime.utc(
-      year ?? this.year,
-      month ?? this.month,
-      day ?? this.day,
-      hour ?? this.hour,
-      minute ?? this.minute,
-      second ?? this.second,
-      millisecond ?? this.millisecond,
-      microsecond ?? this.microsecond,
-    )
+            year ?? this.year,
+            month ?? this.month,
+            day ?? this.day,
+            hour ?? this.hour,
+            minute ?? this.minute,
+            second ?? this.second,
+            millisecond ?? this.millisecond,
+            microsecond ?? this.microsecond,
+          )
         : DateTime(
-      year ?? this.year,
-      month ?? this.month,
-      day ?? this.day,
-      hour ?? this.hour,
-      minute ?? this.minute,
-      second ?? this.second,
-      millisecond ?? this.millisecond,
-      microsecond ?? this.microsecond,
-    );
+            year ?? this.year,
+            month ?? this.month,
+            day ?? this.day,
+            hour ?? this.hour,
+            minute ?? this.minute,
+            second ?? this.second,
+            millisecond ?? this.millisecond,
+            microsecond ?? this.microsecond,
+          );
   }
 }
 

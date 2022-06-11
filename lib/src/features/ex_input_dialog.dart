@@ -16,6 +16,7 @@ mixin ExInputDialog {
     required String title,
     required String questionText,
     required String helperText,
+    String? initialValue,
     double height = 250,
     double width = 300,
     double titleTextSize = 18,
@@ -29,14 +30,13 @@ mixin ExInputDialog {
     Function()? onNo,
   }) {
     final isInputValid = false.obs;
+    final tfController = TextEditingController(text: initialValue);
 
     showDialog(
       context: Get.context!,
       barrierDismissible: isDismissible,
       barrierColor: barrierColor,
       builder: (context) {
-        final tfController = TextEditingController();
-
         return AlertDialog(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(cornerRadius))),
           contentPadding: EdgeInsets.all(0),
