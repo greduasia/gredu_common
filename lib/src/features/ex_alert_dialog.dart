@@ -1,7 +1,5 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -48,45 +46,47 @@ mixin ExAlert {
       barrierDismissible: isDismissible,
       barrierColor: barrierColor,
       builder: (context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(cornerRadius))),
-          // contentPadding: EdgeInsets.all(16),
-          scrollable: true,
-
-          content: VStack([
-            if (showAsset)
-              VStack([
-                if (svgAssetDir.isNotBlank)
-                  SvgPicture.asset(svgAssetDir, width: 90, height: 90).centered()
-                else
-                  SvgPicture.asset(svgAssetDir, package: 'gredu_common', width: 90, height: 90).centered(),
-                24.heightBox,
-              ]),
-            Text(
-              title,
-              style: TextStyle(fontSize: titleTextSize, fontWeight: FontWeight.bold, color: titleTextColor),
-              textAlign: titleTextAlign,
-              maxLines: 2,
-            ).w(double.infinity),
-            12.heightBox,
-            Text(
-              message,
-              style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor),
-              textAlign: messageTextAlign,
-            ).w(double.infinity),
-          ]),
-          actions: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Theme.of(context).primaryColor),
-                  onPressed: onYes ?? () => Get.back(),
-                  child: Text(btnOkText),
-                ).pOnly(left: 12, right: 12, bottom: 12).h(55).expand(),
-              ],
-            ),
-          ],
+        return WillPopScope(
+          onWillPop: () async => isDismissible,
+          child: AlertDialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(cornerRadius))),
+            // contentPadding: EdgeInsets.all(16),
+            scrollable: true,
+            content: VStack([
+              if (showAsset)
+                VStack([
+                  if (svgAssetDir.isNotBlank)
+                    SvgPicture.asset(svgAssetDir, width: 90, height: 90).centered()
+                  else
+                    SvgPicture.asset(svgAssetDir, package: 'gredu_common', width: 90, height: 90).centered(),
+                  24.heightBox,
+                ]),
+              Text(
+                title,
+                style: TextStyle(fontSize: titleTextSize, fontWeight: FontWeight.bold, color: titleTextColor),
+                textAlign: titleTextAlign,
+                maxLines: 2,
+              ).w(double.infinity),
+              12.heightBox,
+              Text(
+                message,
+                style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor),
+                textAlign: messageTextAlign,
+              ).w(double.infinity),
+            ]),
+            actions: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(primary: Theme.of(context).primaryColor),
+                    onPressed: onYes ?? () => Get.back(),
+                    child: Text(btnOkText),
+                  ).pOnly(left: 12, right: 12, bottom: 12).h(55).expand(),
+                ],
+              ),
+            ],
+          ),
         );
       },
     );
@@ -102,7 +102,7 @@ mixin ExAlert {
   /// );
   /// ```
   static void error({
-    String svgAssetDir = 'assets/images/ic_dialog_error.svg',
+    String svgAssetDir = 'assets/images/ic_dialog_warning.svg',
     bool showAsset = true,
     String title = 'Failed',
     double titleTextSize = 18,
@@ -123,44 +123,47 @@ mixin ExAlert {
       barrierDismissible: isDismissible,
       barrierColor: barrierColor,
       builder: (context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(cornerRadius))),
-          // contentPadding: EdgeInsets.all(16),
-          scrollable: true,
-          content: VStack([
-            if (showAsset)
-              VStack([
-                if (svgAssetDir.isNotBlank)
-                  SvgPicture.asset(svgAssetDir, width: 90, height: 90).centered()
-                else
-                  SvgPicture.asset(svgAssetDir, package: 'gredu_common', width: 90, height: 90).centered(),
-                24.heightBox,
-              ]),
-            Text(
-              title,
-              style: TextStyle(fontSize: titleTextSize, fontWeight: FontWeight.bold, color: titleTextColor),
-              textAlign: titleTextAlign,
-              maxLines: 2,
-            ).w(double.infinity),
-            12.heightBox,
-            Text(
-              message,
-              style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor),
-              textAlign: messageTextAlign,
-            ).w(double.infinity),
-          ]),
-          actions: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Theme.of(context).errorColor),
-                  onPressed: onYes ?? () => Get.back(),
-                  child: Text(btnYesText),
-                ).pOnly(left: 12, right: 12, bottom: 12).h(55).expand(),
-              ],
-            ),
-          ],
+        return WillPopScope(
+          onWillPop: () async => isDismissible,
+          child: AlertDialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(cornerRadius))),
+            // contentPadding: EdgeInsets.all(16),
+            scrollable: true,
+            content: VStack([
+              if (showAsset)
+                VStack([
+                  if (svgAssetDir.isNotBlank)
+                    SvgPicture.asset(svgAssetDir, width: 90, height: 90).centered()
+                  else
+                    SvgPicture.asset(svgAssetDir, package: 'gredu_common', width: 90, height: 90).centered(),
+                  24.heightBox,
+                ]),
+              Text(
+                title,
+                style: TextStyle(fontSize: titleTextSize, fontWeight: FontWeight.bold, color: titleTextColor),
+                textAlign: titleTextAlign,
+                maxLines: 2,
+              ).w(double.infinity),
+              12.heightBox,
+              Text(
+                message,
+                style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor),
+                textAlign: messageTextAlign,
+              ).w(double.infinity),
+            ]),
+            actions: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(primary: Theme.of(context).errorColor),
+                    onPressed: onYes ?? () => Get.back(),
+                    child: Text(btnYesText),
+                  ).pOnly(left: 12, right: 12, bottom: 12).h(55).expand(),
+                ],
+              ),
+            ],
+          ),
         );
       },
     );
@@ -177,7 +180,7 @@ mixin ExAlert {
   /// );
   /// ```
   static void confirm({
-    String svgAssetDir = 'assets/images/ic_dialog_question.svg',
+    String svgAssetDir = 'assets/images/ic_dialog_warning.svg',
     bool showAsset = true,
     String title = '',
     double titleTextSize = 18,
@@ -201,61 +204,64 @@ mixin ExAlert {
       barrierDismissible: isDismissible,
       barrierColor: barrierColor,
       builder: (context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(cornerRadius))),
-          // contentPadding: EdgeInsets.all(16),
-          scrollable: true,
-          content: VStack([
-            if (showAsset)
-              VStack([
-                if (svgAssetDir.isNotBlank)
-                  SvgPicture.asset(svgAssetDir, width: 90, height: 90).centered()
-                else
-                  SvgPicture.asset(svgAssetDir, package: 'gredu_common', width: 90, height: 90).centered(),
-                24.heightBox,
-              ]),
-            Text(
-              title,
-              style: TextStyle(fontSize: titleTextSize, fontWeight: FontWeight.bold, color: titleTextColor),
-              textAlign: titleTextAlign,
-              maxLines: 2,
-            ).w(double.infinity),
-            12.heightBox,
-            Text(
-              message,
-              style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor),
-              textAlign: messageTextAlign,
-            ).w(double.infinity),
-          ]),
-          actions: [
-            Column(
-              children: [
-                SizedBox(
-                  width: double.infinity,
-                  height: 44,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(primary: isWarningMode == true ? Theme.of(context).errorColor : Theme.of(context).primaryColor),
-                    onPressed: onYes ?? () => Get.back(),
-                    child: Text(btnYesText),
-                  ),
-                ),
-                12.heightBox,
-                SizedBox(
-                  width: double.infinity,
-                  height: 44,
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      primary: isWarningMode == true ? Theme.of(context).errorColor : Colors.black,
-                      side: BorderSide(color: isWarningMode == true ? Theme.of(context).errorColor : Colors.black),
+        return WillPopScope(
+          onWillPop: () async => isDismissible,
+          child: AlertDialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(cornerRadius))),
+            // contentPadding: EdgeInsets.all(16),
+            scrollable: true,
+            content: VStack([
+              if (showAsset)
+                VStack([
+                  if (svgAssetDir.isNotBlank)
+                    SvgPicture.asset(svgAssetDir, width: 90, height: 90).centered()
+                  else
+                    SvgPicture.asset(svgAssetDir, package: 'gredu_common', width: 90, height: 90).centered(),
+                  24.heightBox,
+                ]),
+              Text(
+                title,
+                style: TextStyle(fontSize: titleTextSize, fontWeight: FontWeight.bold, color: titleTextColor),
+                textAlign: titleTextAlign,
+                maxLines: 2,
+              ).w(double.infinity),
+              12.heightBox,
+              Text(
+                message,
+                style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor),
+                textAlign: messageTextAlign,
+              ).w(double.infinity),
+            ]),
+            actions: [
+              Column(
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    height: 44,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(primary: isWarningMode == true ? Theme.of(context).errorColor : Theme.of(context).primaryColor),
+                      onPressed: onYes ?? () => Get.back(),
+                      child: Text(btnYesText),
                     ),
-                    onPressed: onNo ?? () => Get.back(),
-                    child: Text(btnNoText),
                   ),
-                ),
-                12.heightBox,
-              ],
-            ).pOnly(left: 12, right: 12),
-          ],
+                  12.heightBox,
+                  SizedBox(
+                    width: double.infinity,
+                    height: 44,
+                    child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        primary: isWarningMode == true ? Theme.of(context).errorColor : Colors.black,
+                        side: BorderSide(color: isWarningMode == true ? Theme.of(context).errorColor : Colors.black),
+                      ),
+                      onPressed: onNo ?? () => Get.back(),
+                      child: Text(btnNoText),
+                    ),
+                  ),
+                  12.heightBox,
+                ],
+              ).pOnly(left: 12, right: 12),
+            ],
+          ),
         );
       },
     );
