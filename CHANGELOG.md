@@ -1,3 +1,8 @@
+## 0.0.10
+* added WillPopScope as parent for AlertDialog
+* added integration test for ex_alert_dialog
+* added more button to show alert dialog in home_view (example)
+
 ## 0.0.9
 * change default isDismissible = false on ExLoading
 * add param initial value on ExInputDialog
