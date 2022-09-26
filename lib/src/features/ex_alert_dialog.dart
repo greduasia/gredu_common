@@ -32,13 +32,13 @@ mixin ExAlert {
     TextAlign titleTextAlign = TextAlign.left,
     Color titleTextColor = Colors.black,
     String message = '',
-    double messageTextSize = 13,
+    double messageTextSize = 14,
     TextAlign messageTextAlign = TextAlign.left,
-    Color messageTextColor = Colors.blueGrey,
+    Color messageTextColor = const Color(0xff596066),
     bool isDismissible = false,
     String btnOkText = 'Close',
     Color? barrierColor = Colors.black54,
-    double cornerRadius = 8.0,
+    double cornerRadius = 4.0,
     Function()? onYes,
   }) {
     showDialog(
@@ -70,7 +70,7 @@ mixin ExAlert {
               12.heightBox,
               Text(
                 message,
-                style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor),
+                style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor, height: 1.5),
                 textAlign: messageTextAlign,
               ).w(double.infinity),
             ]),
@@ -109,13 +109,13 @@ mixin ExAlert {
     TextAlign titleTextAlign = TextAlign.left,
     Color titleTextColor = Colors.black,
     String message = '',
-    double messageTextSize = 13,
+    double messageTextSize = 14,
     TextAlign messageTextAlign = TextAlign.left,
-    Color messageTextColor = Colors.blueGrey,
+    Color messageTextColor = const Color(0xff596066),
     bool isDismissible = false,
     String btnYesText = 'Close',
     Color? barrierColor = Colors.black54,
-    double cornerRadius = 8.0,
+    double cornerRadius = 4.0,
     Function()? onYes,
   }) {
     showDialog(
@@ -147,7 +147,7 @@ mixin ExAlert {
               12.heightBox,
               Text(
                 message,
-                style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor),
+                style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor, height: 1.5),
                 textAlign: messageTextAlign,
               ).w(double.infinity),
             ]),
@@ -187,9 +187,9 @@ mixin ExAlert {
     TextAlign titleTextAlign = TextAlign.left,
     Color titleTextColor = Colors.black,
     String message = '',
-    double messageTextSize = 13,
+    double messageTextSize = 14,
     TextAlign messageTextAlign = TextAlign.left,
-    Color messageTextColor = Colors.blueGrey,
+    Color messageTextColor = const Color(0xff596066),
     bool isDismissible = false,
     String btnNoText = 'No',
     Function()? onNo,
@@ -197,7 +197,7 @@ mixin ExAlert {
     Function()? onYes,
     bool isWarningMode = false,
     Color? barrierColor = Colors.black54,
-    double cornerRadius = 8.0,
+    double cornerRadius = 4.0,
   }) {
     showDialog(
       context: Get.context!,
@@ -228,7 +228,7 @@ mixin ExAlert {
               12.heightBox,
               Text(
                 message,
-                style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor),
+                style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor, height: 1.5),
                 textAlign: messageTextAlign,
               ).w(double.infinity),
             ]),
@@ -251,7 +251,7 @@ mixin ExAlert {
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
                         primary: isWarningMode == true ? Theme.of(context).errorColor : Colors.black,
-                        side: BorderSide(color: isWarningMode == true ? Theme.of(context).errorColor : Colors.black),
+                        side: BorderSide(color: Color(0xff9EA9AD)),
                       ),
                       onPressed: onNo ?? () => Get.back(),
                       child: Text(btnNoText),

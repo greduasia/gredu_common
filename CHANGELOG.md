@@ -1,3 +1,6 @@
+## 0.1.0
+* fix UI ExAlert it's not in accordance with figma
+
 ## 0.0.10
 * added WillPopScope as parent for AlertDialog
 * added integration test for ex_alert_dialog

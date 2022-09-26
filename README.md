@@ -5,6 +5,8 @@ is an common widget / utils or helper library we made for all type application. 
 
 ### Rules for Developer:
 
+0. add CHANGELOG.md | update `pubspec.yml` version
+
 1. If you wanna write new function / utils / etc. don't forget to create unit testing for that scope.
 
 2. make sure structure folder `root & test` must be same.
