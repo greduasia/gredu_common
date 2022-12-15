@@ -14,12 +14,14 @@ mixin ExInputDialog {
   // type : single input
   static void single({
     required String title,
-    required String questionText,
-    required String helperText,
+    String? questionText,
+    String? helperText,
     String? initialValue,
     double height = 250,
     double width = 300,
     double titleTextSize = 18,
+    TextStyle? questionTextStyle,
+    TextStyle? helperTextStyle,
     bool isDismissible = true,
     String inputHint = 'example',
     String btnOkText = 'Simpan',
@@ -55,14 +57,15 @@ mixin ExInputDialog {
                   ),
                 ).cornerRadius(4),
                 24.heightBox,
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Text(
-                    questionText,
-                    textAlign: TextAlign.start,
-                    style: TextStyle(fontSize: 12, color: Color(0xFF676E76)),
+                if (questionText != null)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(
+                      questionText,
+                      textAlign: TextAlign.start,
+                      style: questionTextStyle ?? TextStyle(fontSize: 12, color: Color(0xFF676E76)),
+                    ),
                   ),
-                ),
                 VxTextField(
                   controller: tfController,
                   borderType: VxTextFieldBorderType.roundLine,
@@ -73,13 +76,14 @@ mixin ExInputDialog {
                   contentPaddingTop: 8,
                   onChanged: (s) => isInputValid.value = s.isNotBlank,
                 ).pSymmetric(h: 12, v: 12),
-                Text(
-                  helperText,
-                  textAlign: TextAlign.start,
-                  style: TextStyle(fontSize: 12, color: Color(0xFF676E76)),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ).pSymmetric(h: 12),
+                if (helperText != null)
+                  Text(
+                    helperText,
+                    textAlign: TextAlign.start,
+                    style: helperTextStyle ?? TextStyle(fontSize: 12, color: Color(0xFF676E76)),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ).pSymmetric(h: 12),
                 8.heightBox,
                 Divider(),
               ],

@@ -1,7 +1,7 @@
 name: gredu_common
 description: GreduCommon is an common widget / utils or helper library i made for all type application. whatever application you made, GreduCommon it will help you reduce your fucking time on development process
 
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/abehbatre/gredu_common
 
 environment:

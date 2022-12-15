@@ -39,6 +39,7 @@ mixin ExAlert {
     String btnOkText = 'Close',
     Color? barrierColor = Colors.black54,
     double cornerRadius = 4.0,
+    Widget? additional,
     Function()? onYes,
   }) {
     showDialog(
@@ -73,6 +74,7 @@ mixin ExAlert {
                 style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor, height: 1.5),
                 textAlign: messageTextAlign,
               ).w(double.infinity),
+              additional ?? 0.heightBox,
             ]),
             actions: [
               Row(
@@ -117,6 +119,7 @@ mixin ExAlert {
     Color? barrierColor = Colors.black54,
     double cornerRadius = 4.0,
     Function()? onYes,
+    Widget? additional,
   }) {
     showDialog(
       context: Get.context!,
@@ -150,6 +153,7 @@ mixin ExAlert {
                 style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor, height: 1.5),
                 textAlign: messageTextAlign,
               ).w(double.infinity),
+              additional ?? 0.heightBox,
             ]),
             actions: [
               Row(
@@ -198,6 +202,7 @@ mixin ExAlert {
     bool isWarningMode = false,
     Color? barrierColor = Colors.black54,
     double cornerRadius = 4.0,
+    Widget? additional,
   }) {
     showDialog(
       context: Get.context!,
@@ -231,6 +236,7 @@ mixin ExAlert {
                 style: TextStyle(fontSize: messageTextSize, fontWeight: FontWeight.normal, color: messageTextColor, height: 1.5),
                 textAlign: messageTextAlign,
               ).w(double.infinity),
+              additional ?? 0.heightBox,
             ]),
             actions: [
               Column(

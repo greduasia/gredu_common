@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter_loggy/flutter_loggy.dart';
 import 'package:loggy/loggy.dart';
 
@@ -12,7 +11,6 @@ class ExLog {
         LogLevel.all,
         stackTraceLevel: LogLevel.error,
       ),
-
     );
 
     logInfo('GreduLog is ready...');
@@ -20,9 +18,7 @@ class ExLog {
 }
 
 void log(message) {
-  if (kDebugMode) {
-    logDebug(message);
-  }
+  logDebug(message);
 }
 
 void print(message) {
@@ -30,25 +26,17 @@ void print(message) {
 }
 
 void logD(message) {
-  if (kDebugMode) {
-    logDebug('$message');
-  }
+  logDebug('$message');
 }
 
 void logE(message) {
-  if (kDebugMode) {
-    logError('$message');
-  }
+  logError('$message');
 }
 
 void logI(message) {
-  if (kDebugMode) {
-    logInfo(message);
-  }
+  logInfo(message);
 }
 
 void logW(message) {
-  if (kDebugMode) {
-    logWarning('$message');
-  }
+  logWarning('$message');
 }
