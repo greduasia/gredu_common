@@ -3,8 +3,7 @@ part of collections;
 extension RangeNum<T extends num> on T {
   /// Returns a range from this value down to the specified to value with the
   /// step.
-  List<T> downTo(T downTo, {T? step}) =>
-      range(this, downTo: downTo, step: step);
+  List<T> downTo(T downTo, {T? step}) => range(this, downTo: downTo, step: step);
 
   /// Returns a range from this value up to and including the specified `to`
   /// value.

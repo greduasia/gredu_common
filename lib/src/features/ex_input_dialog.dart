@@ -102,7 +102,7 @@ mixin ExInputDialog {
                 ).pOnly(right: 12, bottom: 12).h(55),
                 Obx(
                   () => ElevatedButton(
-                    style: ElevatedButton.styleFrom(primary: Theme.of(context).primaryColor),
+                    style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).primaryColor),
                     onPressed: isInputValid.value == true
                         ? () {
                             if (tfController.text.isNotBlank) {

@@ -1,3 +1,6 @@
+## 0.1.2
+* improve log
+* upgrade packages
 ## 0.1.0
 * fix UI ExAlert it's not in accordance with figma
 

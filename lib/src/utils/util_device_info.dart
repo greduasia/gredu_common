@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:device_info/device_info.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 
 ///   created               : Aditya Pratama
 ///   originalFilename      : device_info_util
@@ -14,10 +14,10 @@ class DeviceInfo {
     String id = 'unknown';
     if (Platform.isAndroid) {
       final AndroidDeviceInfo androidInfo = await _deviceInfo.androidInfo;
-      id = androidInfo.androidId;
+      id = androidInfo.id;
     } else if (Platform.isIOS) {
       final IosDeviceInfo iosInfo = await _deviceInfo.iosInfo;
-      id = iosInfo.identifierForVendor;
+      id = iosInfo.identifierForVendor ?? '';
     }
     return id;
   }
@@ -29,7 +29,7 @@ class DeviceInfo {
       name = androidInfo.model;
     } else if (Platform.isIOS) {
       final IosDeviceInfo iosInfo = await _deviceInfo.iosInfo;
-      name = iosInfo.utsname.machine;
+      name = iosInfo.utsname.machine ?? '';
     }
     return name;
   }
@@ -41,7 +41,7 @@ class DeviceInfo {
       type = androidInfo.type;
     } else if (Platform.isIOS) {
       final IosDeviceInfo iosInfo = await _deviceInfo.iosInfo;
-      type = iosInfo.name;
+      type = iosInfo.name ?? '';
     }
     return type;
   }

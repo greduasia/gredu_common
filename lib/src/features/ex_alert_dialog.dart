@@ -81,7 +81,7 @@ mixin ExAlert {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(primary: Theme.of(context).primaryColor),
+                    style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).primaryColor),
                     onPressed: onYes ?? () => Get.back(),
                     child: Text(btnOkText),
                   ).pOnly(left: 12, right: 12, bottom: 12).h(55).expand(),
@@ -160,7 +160,7 @@ mixin ExAlert {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(primary: Theme.of(context).errorColor),
+                    style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).errorColor),
                     onPressed: onYes ?? () => Get.back(),
                     child: Text(btnYesText),
                   ).pOnly(left: 12, right: 12, bottom: 12).h(55).expand(),
@@ -245,7 +245,7 @@ mixin ExAlert {
                     width: double.infinity,
                     height: 44,
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: isWarningMode == true ? Theme.of(context).errorColor : Theme.of(context).primaryColor),
+                      style: ElevatedButton.styleFrom(backgroundColor: isWarningMode == true ? Theme.of(context).errorColor : Theme.of(context).primaryColor),
                       onPressed: onYes ?? () => Get.back(),
                       child: Text(btnYesText),
                     ),
@@ -256,7 +256,7 @@ mixin ExAlert {
                     height: 44,
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
-                        primary: isWarningMode == true ? Theme.of(context).errorColor : Colors.black,
+                        foregroundColor: isWarningMode == true ? Theme.of(context).errorColor : Colors.black,
                         side: BorderSide(color: Color(0xff9EA9AD)),
                       ),
                       onPressed: onNo ?? () => Get.back(),

@@ -1,22 +1,20 @@
 name: gredu_common
-description: GreduCommon is an common widget / utils or helper library i made for all type application. whatever application you made, GreduCommon it will help you reduce your fucking time on development process
+description: GreduUI is private packages for Gredu company, not commersial purpose.
 
-version: 0.1.1
-homepage: https://github.com/abehbatre/gredu_common
+version: 0.1.2
+homepage: https://github.com/greduasia/gredu_common
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  velocity_x: ^3.4.0
-  flutter_svg: ^1.0.3
-  meta: ^1.7.0
-  device_info: ^2.0.3
-  loggy: ^2.0.1+1
-  flutter_loggy: ^2.0.1
-  intl: ^0.17.0
-  get: ^4.6.1
   clock: ^1.1.0
+  device_info_plus: ^8.0.0
+  flutter_svg: ^1.0.3
+  get: ^4.6.1
+  intl: ^0.17.0
+  meta: ^1.7.0
+  velocity_x: ^3.6.0
 
   flutter:
     sdk: flutter

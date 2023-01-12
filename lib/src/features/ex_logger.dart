@@ -1,42 +1,35 @@
-import 'package:flutter_loggy/flutter_loggy.dart';
-import 'package:loggy/loggy.dart';
+import 'dart:developer' as developer;
+
+const _logName = 'Gredu';
 
 class ExLog {
   ExLog._();
 
   static Future<void> init() async {
-    Loggy.initLoggy(
-      logPrinter: StreamPrinter(const PrettyDeveloperPrinter()),
-      logOptions: const LogOptions(
-        LogLevel.all,
-        stackTraceLevel: LogLevel.error,
-      ),
-    );
-
-    logInfo('GreduLog is ready...');
+    developer.log('🤖 | $_logName is ready...', name: _logName);
   }
 }
 
-void log(message) {
-  logDebug(message);
+void log(dynamic message) {
+  developer.log('🤖 | $message', name: _logName);
 }
 
-void print(message) {
-  logDebug(message);
+void print(dynamic message) {
+  developer.log('🤖 | $message', name: _logName);
 }
 
-void logD(message) {
-  logDebug('$message');
+void logD(dynamic message) {
+  developer.log('🤖 | $message', name: _logName);
 }
 
-void logE(message) {
-  logError('$message');
+void logE(dynamic message) {
+  developer.log('🔴 | $message', name: _logName);
 }
 
-void logI(message) {
-  logInfo(message);
+void logI(dynamic message) {
+  developer.log('💻 | $message', name: _logName);
 }
 
-void logW(message) {
-  logWarning('$message');
+void logW(dynamic message) {
+  developer.log('🟠 | $message', name: _logName);
 }

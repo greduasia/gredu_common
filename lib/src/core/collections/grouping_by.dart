@@ -25,8 +25,6 @@ typedef AggregateOperation<T, K, R> = R Function(
 ///
 /// To get an instance use the [GroupingBy] extension method.
 class Grouping<T, K> {
-
-
   Grouping._construct(this._source, this.group);
 
   final Iterable<T> _source;

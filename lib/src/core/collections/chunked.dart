@@ -3,25 +3,21 @@ part of collections;
 typedef ChunkedTransform<T, R> = R Function(T chunk);
 
 class _Chunked<T, R> extends IterableBase<R> {
-
   _Chunked(
-      this.iterable,
-      this.size,
-      this.transform,
-      ) : assert(size > 0);
+    this.iterable,
+    this.size,
+    this.transform,
+  ) : assert(size > 0);
 
   final Iterable<T> iterable;
   final int size;
   final ChunkedTransform<List<T>, R> transform;
-
-
 
   @override
   Iterator<R> get iterator => _ChunkedIterator<T, R>(iterable.iterator, size, transform);
 }
 
 class _ChunkedIterator<T, R> implements Iterator<R> {
-
   _ChunkedIterator(this.iterator, this.size, this.transform);
 
   final Iterator<T> iterator;
@@ -31,7 +27,6 @@ class _ChunkedIterator<T, R> implements Iterator<R> {
 
   @override
   R get current => _current!;
-
 
   @override
   bool moveNext() {

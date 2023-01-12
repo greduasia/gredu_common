@@ -41,9 +41,7 @@ part of collections;
 /// ```
 List<T> range<T extends num>(T value, {T? to, T? until, T? downTo, T? step}) {
   assert(
-    (to != null && until == null && downTo == null) ||
-        (to == null && until != null && downTo == null) ||
-        (to == null && until == null && downTo != null),
+    (to != null && until == null && downTo == null) || (to == null && until != null && downTo == null) || (to == null && until == null && downTo != null),
     'Either the `to`, `until` or `downTo` argument is required',
   );
   assert(
@@ -51,9 +49,7 @@ List<T> range<T extends num>(T value, {T? to, T? until, T? downTo, T? step}) {
     'The `step` should be a positive number',
   );
   assert(
-    (to != null && value <= to) ||
-        (until != null && value < until) ||
-        (downTo != null && value >= downTo),
+    (to != null && value <= to) || (until != null && value < until) || (downTo != null && value >= downTo),
     'Range out of bound',
   );
 
