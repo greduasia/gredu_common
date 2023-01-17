@@ -95,7 +95,7 @@ mixin ExInputDialog {
               children: [
                 OutlinedButton(
                   onPressed: onNo ?? () => Get.back(),
-                  child: Text(
+                  Widget: Text(
                     btnCancelText,
                     style: TextStyle(color: Colors.black),
                   ),

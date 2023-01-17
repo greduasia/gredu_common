@@ -1,3 +1,6 @@
+## 0.1.3
+* fix backward compability after flutter upgrade
+
 ## 0.1.2
 * improve log
 * upgrade packages

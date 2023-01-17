@@ -1,7 +1,7 @@
 name: gredu_common
 description: GreduUI is private packages for Gredu company, not commersial purpose.
 
-version: 0.1.2
+version: 0.1.3
 homepage: https://github.com/greduasia/gredu_common
 
 environment:

@@ -260,7 +260,7 @@ mixin ExAlert {
                         side: BorderSide(color: Color(0xff9EA9AD)),
                       ),
                       onPressed: onNo ?? () => Get.back(),
-                      child: Text(btnNoText),
+                      Widget: Text(btnNoText),
                     ),
                   ),
                   12.heightBox,
