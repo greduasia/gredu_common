@@ -1,3 +1,6 @@
+## 0.1.4
+* fix backward compability after flutter upgrade 3.7.0
+
 ## 0.1.3
 * fix backward compability after flutter upgrade
 

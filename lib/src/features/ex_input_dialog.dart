@@ -95,7 +95,7 @@ mixin ExInputDialog {
               children: [
                 OutlinedButton(
                   onPressed: onNo ?? () => Get.back(),
-                  Widget: Text(
+                  child: Text(
                     btnCancelText,
                     style: TextStyle(color: Colors.black),
                   ),
@@ -112,7 +112,7 @@ mixin ExInputDialog {
                               Get.snackbar(
                                 'Gagal',
                                 'Field tidak boleh kosong',
-                                backgroundColor: Theme.of(context).errorColor,
+                                backgroundColor: Theme.of(context).colorScheme.error,
                                 colorText: Colors.white,
                                 duration: 900.milliseconds,
                                 animationDuration: 100.milliseconds,
