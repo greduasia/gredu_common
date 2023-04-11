@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -54,7 +55,7 @@ extension StringToDateFormatterExtension on String {
     if (resDate == today) {
       output = (toDateEx(format: format).add(7.hours)).toStringEx(format: 'HH:mm');
     } else if (resDate == yesterday) {
-      output = 'Kemarin';
+      output = 'common.kemarin'.tr;
     } else {
       output = resDate;
     }
@@ -79,7 +80,7 @@ extension StringToDateFormatterExtension on String {
         output = '${resHours}j';
       }
     } else if (resDate == yesterday) {
-      output = 'Kemarin';
+      output = 'common.kemarin'.tr;
     } else if (resDateTime.day < (DateTime.now().add(6.days)).day) {
       output = resDateTime.toStringEx(format: 'E');
     } else {
