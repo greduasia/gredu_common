@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -17,9 +16,9 @@ extension StringToDateExtension on String {
   /// ---
   /// @param : format (optional)
   DateTime toDateEx({String format = 'yyyy-MM-ddTHH:mm:ssZ'}) {
-    initializeDateFormatting('in');
-    const locale = 'in';
-    return DateFormat(format, locale).parse(this);
+    // initializeDateFormatting('in');
+    // const locale = 'in';
+    return DateFormat(format).parse(this);
   }
 }
 
@@ -30,9 +29,9 @@ extension DateToStringExtension on DateTime {
   String toStringEx({
     String format = 'yyyy-MM-ddTHH:mm:ssZ',
   }) {
-    initializeDateFormatting('in');
-    const locale = 'in';
-    final output = DateFormat(format, locale).format(this);
+    // initializeDateFormatting('in');
+    // const locale = 'in';
+    final output = DateFormat(format).format(this);
     return output;
   }
 }
@@ -102,9 +101,9 @@ extension StringToDateFormatterExtension on String {
   }
 
   String fromIntToDate() {
-    initializeDateFormatting('in');
-    const locale = 'in';
-    final df = DateFormat('dd MMMM yyyy', locale);
+    // initializeDateFormatting('in');
+    // const locale = 'in';
+    final df = DateFormat('dd MMMM yyyy');
     final item = toString().substring(0, 10);
     return df.format(DateTime.fromMillisecondsSinceEpoch(int.parse(item) * 1000));
   }
